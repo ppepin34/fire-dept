@@ -5,11 +5,11 @@ const sequelize = require('../config/connection');
 // encrypt passwords
 const bcrypt = require('bcrypt');
 
-class Employee extends Model {}
+// class Employee extends Model {}
 
-Employee.init(
-    {
-        id: {
-            type: DataTypes.INTEGER
-    }
-)
+// Employee.init(
+//     {
+//         id: {
+//             type: DataTypes.INTEGER
+//     }
+// )
