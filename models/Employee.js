@@ -10,6 +10,10 @@ class Employee extends Model {}
 Employee.init(
     {
         id: {
-            type: DataTypes.INTEGER
-    }
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: false,
+            autoIncrement: true
+    },
+    
 )
