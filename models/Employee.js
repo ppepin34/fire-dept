@@ -14,6 +14,6 @@ Employee.init(
             allowNull: false,
             primaryKey: false,
             autoIncrement: true
-    },
-    
-)
+        },
+   
+    })
