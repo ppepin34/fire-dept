@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3004;
 
 const sequelize = require("./config/connection");
+
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // const sess = {
@@ -25,7 +26,9 @@ const sequelize = require("./config/connection");
 
 // const hbs = exphbs.create({ helpers });
 
+
 // app.engine('handlebars', exphbs.engine);
+
 // app.set('view engine', 'handlebars');
 
 // app.use(express.json());
