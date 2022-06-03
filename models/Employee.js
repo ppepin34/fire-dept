@@ -19,11 +19,6 @@ Employee.init(
             allowNull: false,
             primaryKey: false,
             autoIncrement: true
-
-    },
-    
-)
-=======
         },
         first_name: {
             type: DataTypes.STRING,
