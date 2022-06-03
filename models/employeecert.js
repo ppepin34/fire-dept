@@ -32,7 +32,7 @@ EmployeeCert.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'employee_cert'
+        modelName: 'Employee_cert'
     }
 );
 

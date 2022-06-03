@@ -44,7 +44,7 @@ Employee.init(
             allowNull: false
         },
         station_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'station',
@@ -54,7 +54,7 @@ Employee.init(
         certification_id: {
             type: DataTypes.INTEGER,
             references: {
-                id: 'certification',
+                model: 'certification',
                 key: 'id'
             }
         },
