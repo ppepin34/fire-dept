@@ -1,10 +1,24 @@
 // import all models
-
-
+const Certification = require('./Certification');
+const Employee = require('./Employee');
+const Station = require('./Station');
 
 // create associations
+Employee.belongsToMany(Certification, {
+    foreignKey: 'certification_id'
+});
 
-// employee may have more than one certification 
-// employee may not belong to more than one station
+Certification.belongsToMany(Employee, {
+    foreignKey: 'employee_id'
+});
 
-// station has many employees
+Employee.belongsTo(Station, {
+    foreignKey: 'employee_id'
+});
+
+Station.hasMany(Employee, {
+    foreignKey: 'employee_id'
+})
+
+
+module.exports = { Employee, Certification, Station };
