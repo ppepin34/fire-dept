@@ -2,7 +2,7 @@
 const Certification = require('./Certification');
 const Employee = require('./Employee');
 const Station = require('./Station');
-const EmployeeCert = require('./EmployeeCert');
+const EmployeeCert = require('./Employeecert');
 
 // create associations
 Employee.belongsToMany(Certification, {
