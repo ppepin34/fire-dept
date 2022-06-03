@@ -5,6 +5,7 @@ const sequelize = require('../config/connection');
 // encrypt passwords
 const bcrypt = require('bcrypt');
 
+
 class Employee extends Model {
     checkPassword(loginPW){
         return bcrypt.compareSync(loginPW, this.password);
@@ -18,7 +19,7 @@ Employee.init(
             allowNull: false,
             primaryKey: false,
             autoIncrement: true
-<<<<<<< HEAD
+
     },
     
 )
@@ -92,4 +93,5 @@ Employee.init(
 );
 
 module.exports = Employee;
->>>>>>> phil
+
+
