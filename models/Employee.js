@@ -5,7 +5,6 @@ const sequelize = require('../config/connection');
 // encrypt passwords
 const bcrypt = require('bcrypt');
 
-
 class Employee extends Model {
     checkPassword(loginPW){
         return bcrypt.compareSync(loginPW, this.password);
@@ -17,13 +16,8 @@ Employee.init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: false,
+            primaryKey: true,
             autoIncrement: true
-
-    },
-    
-)
-=======
         },
         first_name: {
             type: DataTypes.STRING,
@@ -93,5 +87,3 @@ Employee.init(
 );
 
 module.exports = Employee;
-
-
