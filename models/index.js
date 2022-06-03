@@ -8,13 +8,13 @@ const EmployeeCert = require('./EmployeeCert');
 Employee.belongsToMany(Certification, {
     through: EmployeeCert,
     as: 'employee_cert',
-    foreignKey: 'certification_id'
+    foreignKey: 'employee_id'
 });
 
 Certification.belongsToMany(Employee, {
     through: EmployeeCert,
     as: 'employee_cert',
-    foreignKey: 'employee_id',
+    foreignKey: 'certification_id',
 });
 
 Employee.belongsTo(Station, {
