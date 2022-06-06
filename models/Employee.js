@@ -44,17 +44,10 @@ Employee.init(
             allowNull: false
         },
         station_id: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'station',
-                key: 'id'
-            }
-        },
-        certification_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                id: 'certification',
                 key: 'id'
             }
         },
@@ -62,20 +55,20 @@ Employee.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: 6
+                len: [6]
             }
         }
     },
     {
         hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            async beforeCreate(newEmpData) {
+                newEmpData.password = await bcrypt.hash(newEmpData.password, 10);
+                return newEmpData;
             },
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
+            // async beforeUpdate(updatedUserData) {
+            //     updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            //     return updatedUserData;
+            // }
         },
 
         sequelize,

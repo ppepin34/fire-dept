@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Employee, Certification, Station } = require('../models');
+const { Employee, Certification, Station } = require('../../models');
 
 
-// find all employees
+// GET /api/employee
 router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         });
 });
 
-// find one employee
+// GET /api/employee/ID
 router.get('/:id', (req, res) => {
     Employee.findOne({
         attributes: { exclude: ['password'] },
@@ -45,11 +45,15 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// add an employee
+// POST /api/employee
 router.post('/', (req, res) => {
     Employee.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
         username: req.body.username,
         email: req.body.email,
+        rank: req.body.rank,
+        station_id: req.body.station_id,
         password: req.body.password
     })
         .then(dbEmpData => res.json(dbEmpData))
@@ -59,6 +63,27 @@ router.post('/', (req, res) => {
         });
 });
 
+// PUT /api/employee/1
+router.put('/:id', (req, res) => {
+    Employee.update(req.body, {
+        where: {
+          id: req.params.id
+        }
+    })
+        .then(dbEmpData => {
+            if (!dbEmpData[0]) {
+                res.status(404).json({ message: 'No employee found with this id' });
+                return;
+            }
+            res.json(dbEmpData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    });
+
+// POST /api/login
 router.post('/login', (req, res) => {
     Employee.findOne({
         where: {
@@ -79,7 +104,25 @@ router.post('/login', (req, res) => {
     });
 });
 
-
+// DELETE /api/employee/1
+router.delete('/:id', (req, res) => {
+    Employee.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbEmpData => {
+        if (!dbEmpData) {
+          res.status(404).json({ message: 'No employee found with this id' });
+          return;
+        }
+        res.json(dbEmpData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 
 
