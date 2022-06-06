@@ -1,9 +1,17 @@
 const router = require('express').Router();
-const { Employee, Certification, Station } = require('../models');
+const { Employee, Certification, Station } = require('../../models');
 
-// find all stations
+// GET /api/station 
 router.get('/', (req, res) => {
-    Station.findAll()
+    Station.findAll({
+        attributes: ['station_name'],
+        include: [
+            {
+              model: Employee,
+              attributes: ['first_name','last_name', 'rank']
+            }
+          ]
+    })
     .then(dbStationData => res.json(dbStationData))
     .catch(err => {
         console.log(err);
@@ -11,7 +19,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// find one station
+// GET /api/station/id
 router.get('/:id', (req, res) => {
     Station.findOne({
         where: {
@@ -22,11 +30,12 @@ router.get('/:id', (req, res) => {
                 model: Employee,
                 attributes: ['id', 'first_name', 'last_name', 'rank']
             },
-            {
-                model: Certification,
-                attributes: ['id', 'cert_name']
-            }
         ]
+        //     {
+        //         model: Certification,
+        //         attributes: ['id', 'cert_name']
+        //     }
+        // ]
     })
     .then(dbStationData => {
         if (!dbStationData) {
@@ -40,5 +49,17 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+// POST /api/station
+router.post('/', (req, res) => {
+    Station.create({
+      station_name: req.body.station_name,
+    })
+      .then(dbStationData => res.json(dbStationData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 module.exports = router;

@@ -4,19 +4,7 @@ const Employee = require('./Employee');
 const Station = require('./Station');
 const EmployeeCert = require('./Employeecert');
 
-// create associations
-Employee.belongsToMany(Certification, {
-    through: EmployeeCert,
-    as: 'employee_cert',
-    foreignKey: 'employee_id'
-});
-
-Certification.belongsToMany(Employee, {
-    through: EmployeeCert,
-    as: 'employee_cert',
-    foreignKey: 'certification_id',
-});
-
+//create associations
 Employee.belongsTo(Station, {
     foreignKey: 'employee_id'
 });
@@ -25,5 +13,16 @@ Station.hasMany(Employee, {
     foreignKey: 'employee_id'
 });
 
+Employee.belongsToMany(Certification, {
+    through: EmployeeCert,
+    as: 'certifications',
+    foreignKey: 'employee_id'
+});
+
+Certification.belongsToMany(Employee, {
+    through: EmployeeCert,
+    as: 'certifications',
+    foreignKey: 'certification_id',
+});
 
 module.exports = { Employee, Certification, Station };
