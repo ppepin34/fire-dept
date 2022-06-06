@@ -1,18 +1,12 @@
 const router = require('express').Router();
 
-const certRoutes = require('./certification-routes');
-const empRoutes = require('./employee-routes');
-const stationRoutes = require('./station-routes');
+const apiRoutes = require('./api');
+const homeRoutes = require('./home-routes');
 
-router.get('/', (req, res) => {
-    res.render('login')
-})
+router.use('/', homeRoutes);
+router.use('/api', apiRoutes);
 
-// router.use('/', certRoutes);
-// router.use('/', empRoutes);
-// router.use('/', stationRoutes);
-
-router.use((req, res) => {
+router.use((req,res) => {
     res.status(404).end();
 });
 
