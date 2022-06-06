@@ -21,14 +21,15 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
+        attributes: ['first_name', 'last_name', 'rank'],
         include: [
-            {
-                model: Certification,
-                attributes: ['id', 'cert_name']
-            },
+            // {
+            //     model: Certification,
+            //     attributes: ['id', 'cert_name']
+            // },
             {
                 model: Station,
-                attributes: ['id', 'station_name']
+                attributes: ['station_name']
             }
         ]
     })
@@ -48,12 +49,12 @@ router.get('/:id', (req, res) => {
 // POST /api/employee
 router.post('/', (req, res) => {
     Employee.create({
+        id: req.body.id,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         username: req.body.username,
         email: req.body.email,
         rank: req.body.rank,
-        station_id: req.body.station_id,
         password: req.body.password
     })
         .then(dbEmpData => res.json(dbEmpData))
@@ -61,6 +62,27 @@ router.post('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+});
+
+// POST api/employee/login
+router.post('/login', (req, res) => {
+    Employee.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then(dbEmpData => {
+        if (!dbEmpData) {
+            res.status(400).json({ message: 'No employee with this email address' });
+            return;
+        }
+        const validatePassword = dbEmpData.checkPassword(req.body.password);
+
+        if (!validatePassword) {
+            res.status(400).json({ message: 'Incorrect password' });
+            return;
+        }
+        res.json({ employee: dbEmpData, message: 'You are now logged in' });
+    });
 });
 
 // PUT /api/employee/1
@@ -83,27 +105,6 @@ router.put('/:id', (req, res) => {
             res.status(500).json(err);
         });
     });
-
-// POST /api/login
-router.post('/login', (req, res) => {
-    Employee.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(dbEmpData => {
-        if (!dbEmpData) {
-            res.status(400).json({ message: 'No user with this email address' });
-            return;
-        }
-        const validatePassword = dbEmpData.checkPassword(req.body.password);
-
-        if (!validatePassword) {
-            res.status(400).json({ message: 'Incorrect password' });
-            return;
-        }
-        res.json({ employee: dbEmpData, message: 'You are now logged in' });
-    });
-});
 
 // DELETE /api/employee/1
 router.delete('/:id', (req, res) => {

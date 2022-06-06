@@ -15,14 +15,14 @@ Station.hasMany(Employee, {
 
 Employee.belongsToMany(Certification, {
     through: EmployeeCert,
-    as: 'employees',
-    foreignKey: 'id_employee'
+    as: 'certifications',
+    foreignKey: 'employee_id'
 });
 
 Certification.belongsToMany(Employee, {
     through: EmployeeCert,
     as: 'certifications',
-    foreignKey: 'id_certification',
+    foreignKey: 'certification_id',
 });
 
 module.exports = { Employee, Certification, Station };

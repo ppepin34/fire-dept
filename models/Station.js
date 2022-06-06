@@ -15,7 +15,7 @@ Station.init(
         station_name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
     },
     {
         sequelize,

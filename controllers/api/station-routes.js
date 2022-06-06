@@ -3,7 +3,15 @@ const { Employee, Certification, Station } = require('../../models');
 
 // GET /api/station 
 router.get('/', (req, res) => {
-    Station.findAll()
+    Station.findAll({
+        attributes: ['station_name'],
+        include: [
+            {
+              model: Employee,
+              attributes: ['first_name','last_name', 'rank']
+            }
+          ]
+    })
     .then(dbStationData => res.json(dbStationData))
     .catch(err => {
         console.log(err);
@@ -17,11 +25,12 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        // include: [
-        //     {
-        //         model: Employee,
-        //         attributes: ['id', 'first_name', 'last_name', 'rank']
-        //     },
+        include: [
+            {
+                model: Employee,
+                attributes: ['id', 'first_name', 'last_name', 'rank']
+            },
+        ]
         //     {
         //         model: Certification,
         //         attributes: ['id', 'cert_name']

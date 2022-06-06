@@ -43,20 +43,16 @@ Employee.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        station_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'station',
-                key: 'id'
-            }
-        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [6]
             }
+        },
+        station_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         }
     },
     {
