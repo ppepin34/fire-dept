@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Employee, Certification, Station } = require('../models');
+const { Employee, Certification, Station } = require('../../models');
 
 
-// find all employees
+// GET /api/employee
 router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
@@ -14,21 +14,22 @@ router.get('/', (req, res) => {
         });
 });
 
-// find one employee
+// GET /api/employee/ID
 router.get('/:id', (req, res) => {
     Employee.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },
+        attributes: ['first_name', 'last_name', 'rank'],
         include: [
-            {
-                model: Certification,
-                attributes: ['id', 'cert_name']
-            },
+            // {
+            //     model: Certification,
+            //     attributes: ['id', 'cert_name']
+            // },
             {
                 model: Station,
-                attributes: ['id', 'station_name']
+                attributes: ['station_name']
             }
         ]
     })
@@ -45,11 +46,15 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// add an employee
+// POST /api/employee
 router.post('/', (req, res) => {
     Employee.create({
+        id: req.body.id,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
         username: req.body.username,
         email: req.body.email,
+        rank: req.body.rank,
         password: req.body.password
     })
         .then(dbEmpData => res.json(dbEmpData))
@@ -59,6 +64,7 @@ router.post('/', (req, res) => {
         });
 });
 
+// POST api/employee/login
 router.post('/login', (req, res) => {
     Employee.findOne({
         where: {
@@ -66,7 +72,7 @@ router.post('/login', (req, res) => {
         }
     }).then(dbEmpData => {
         if (!dbEmpData) {
-            res.status(400).json({ message: 'No user with this email address' });
+            res.status(400).json({ message: 'No employee with this email address' });
             return;
         }
         const validatePassword = dbEmpData.checkPassword(req.body.password);
@@ -79,7 +85,46 @@ router.post('/login', (req, res) => {
     });
 });
 
+// PUT /api/employee/1
+router.put('/:id', (req, res) => {
+    Employee.update(req.body, {
+        individualHooks: true,
+        where: {
+          id: req.params.id
+        }
+    })
+        .then(dbEmpData => {
+            if (!dbEmpData[0]) {
+                res.status(404).json({ message: 'No employee found with this id' });
+                return;
+            }
+            res.json(dbEmpData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    });
 
+// DELETE /api/employee/1
+router.delete('/:id', (req, res) => {
+    Employee.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbEmpData => {
+        if (!dbEmpData) {
+          res.status(404).json({ message: 'No employee found with this id' });
+          return;
+        }
+        res.json(dbEmpData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 
 

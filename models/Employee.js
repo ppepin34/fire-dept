@@ -43,38 +43,27 @@ Employee.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        station_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'station',
-                key: 'id'
-            }
-        },
-        certification_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'certification',
-                key: 'id'
-            }
-        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: 6
+                len: [6]
             }
+        },
+        station_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         }
     },
     {
         hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
+            async beforeCreate(newEmpData) {
+                newEmpData.password = await bcrypt.hash(newEmpData.password, 10);
+                return newEmpData;
             },
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
+            async beforeUpdate(updatedEmpData) {
+                updatedEmpData.password = await bcrypt.hash(updatedEmpData.password, 10);
+                return updatedEmpData;
             }
         },
 
