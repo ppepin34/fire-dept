@@ -65,10 +65,10 @@ Employee.init(
                 newEmpData.password = await bcrypt.hash(newEmpData.password, 10);
                 return newEmpData;
             },
-            // async beforeUpdate(updatedUserData) {
-            //     updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-            //     return updatedUserData;
-            // }
+            async beforeUpdate(updatedEmpData) {
+                updatedEmpData.password = await bcrypt.hash(updatedEmpData.password, 10);
+                return updatedEmpData;
+            }
         },
 
         sequelize,
