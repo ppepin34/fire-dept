@@ -1,56 +1,20 @@
-const { ProductTag } = require('../models');
+const { Certification } = require("../../models");
 
-const productTagData = [
+const Certification = [
   {
-    product_id: 1,
-    tag_id: 6,
+    cert_name: "Driver",
   },
   {
-    product_id: 1,
-    tag_id: 7,
+    cert_name: "CPR",
   },
   {
-    product_id: 1,
-    tag_id: 8,
+    cert_name: "EMR",
   },
   {
-    product_id: 2,
-    tag_id: 6,
-  },
-  {
-    product_id: 3,
-    tag_id: 1,
-  },
-  {
-    product_id: 3,
-    tag_id: 3,
-  },
-  {
-    product_id: 3,
-    tag_id: 4,
-  },
-  {
-    product_id: 3,
-    tag_id: 5,
-  },
-  {
-    product_id: 4,
-    tag_id: 1,
-  },
-  {
-    product_id: 4,
-    tag_id: 2,
-  },
-  {
-    product_id: 4,
-    tag_id: 8,
-  },
-  {
-    product_id: 5,
-    tag_id: 3,
+    cert_name: "EMT",
   },
 ];
 
-const seedProductTags = () => ProductTag.bulkCreate(productTagData);
+const seedCertification = () => Certification.bulkCreate(CertificationData);
 
-module.exports = seedProductTags;
+module.exports = seedCertification;
