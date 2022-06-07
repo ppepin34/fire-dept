@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb">
 
 <head>
   <meta charset="UTF-8">
@@ -7,27 +7,44 @@
   <title>BNFS Employee Tracker</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
 </head>
 
-<body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Belize National Fire Service</a>
-      </h1>
-      <h2>Employee and Certification Tracker</h2>
-        <nav>
-      <a href="/login">login</a>
+<body class="uk-padding-large">
+  <div class="uk-cover-container uk-container-center uk-margin-top uk-margin-medium-bottom">
+
+    <nav class="uk-navbar-container uk-margin-medium-bottom" uk-navbar>
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-item uk-logo" href="/">
+            <img src="/images/BNFS_Logo.png" width="100px" height="100px">
+          </a>
+          <ul class="uk-navbar-nav">
+            <li class="uk-active"> <a href="/">BNSF</a></li>
+            <li class="uk-paren"> <a href="/login">Login</a></li>
+            <li> <a href="/station">Stations</a></li>
+            <li> <a href="/employee">Employees</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <div>
+              <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+              <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                <form class="uk-search uk-search-navbar uk-width-1-1">
+                    <input class="uk-search-input" type="search" placeholder="Search" autofocus>
+                </form>
+              </div>
+            </div>
+        </div>
     </nav>
-    </header>
+  </div>
+
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Please contact BNFS IT for asisstance.
-    </footer>
-  </div>
 
+<footer>
+  Please contact BNFS IT for asisstance.
+</footer>
 </body>
-
 </html>
