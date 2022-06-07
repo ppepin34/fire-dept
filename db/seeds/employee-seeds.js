@@ -73,6 +73,78 @@ const employeeData = [
     station_id: 2,
     rank: "FireFighter"
   },
+  {
+    first_name: "Carmelo",
+    last_name: "Anthony",
+    username: "canthony1",
+    email: "canthony@firedeptbelize.com",
+    password: "belizefd3",
+    station_id: 3,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "Ja",
+    last_name: "Morant",
+    username: "jmorant2",
+    email: "jmorant@firedeptbelize.com",
+    password: "belizefd3",
+    station_id: 3,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "Luka",
+    last_name: "Doncic",
+    username: "ldoncic3",
+    email: "ldoncic@firedeptbelize.com",
+    password: "belizefd3",
+    station_id: 3,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "LeBron",
+    last_name: "James",
+    username: "ljames4",
+    email: "ljames@firedeptbelize.com",
+    password: "belizefd3",
+    station_id: 3,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "Bruce",
+    last_name: "Wayne",
+    username: "thebat1",
+    email: "bwayne@firedeptbelize.com",
+    password: "belizefd4",
+    station_id: 4,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "Peter",
+    last_name: "Parker",
+    username: "thespider2",
+    email: "pparker@firedeptbelize.com",
+    password: "belizefd4",
+    station_id: 4,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "Tony",
+    last_name: "Stark",
+    username: "metalguy3",
+    email: "tstark@firedeptbelize.com",
+    password: "belizefd4",
+    station_id: 4,
+    rank: "FireFighter"
+  },
+  {
+    first_name: "King",
+    last_name: "Tchalla",
+    username: "wakanda4",
+    email: "ktchalla@firedeptbelize.com",
+    password: "belizefd4",
+    station_id: 4,
+    rank: "FireFighter"
+  },
 ];
 
 const seedEmployee = () => Employee.bulkCreate(employeeData);
