@@ -70,7 +70,6 @@ router.post('/', (req, res) => {
 
 
 // POST api/employee/login
-
 router.post('/login', (req, res) => {
     Employee.findOne({
         where: {
