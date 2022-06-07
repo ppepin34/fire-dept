@@ -2,14 +2,9 @@ const router = require('express').Router();
 
 const { Employee, Certification, Station } = require('../../models');
 
-
-
-const { Employee, Certification, Station } = require('../models');
-
 // find all stations
 router.get('/', (req, res) => {
     Station.findAll()
-
     .then(dbStationData => res.json(dbStationData))
     .catch(err => {
         console.log(err);

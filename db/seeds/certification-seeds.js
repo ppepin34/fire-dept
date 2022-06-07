@@ -1,6 +1,6 @@
 const { Certification } = require("../../models");
 
-const Certification = [
+const certificationData = [
   {
     cert_name: "Driver",
   },
@@ -15,6 +15,6 @@ const Certification = [
   },
 ];
 
-const seedCertification = () => Certification.bulkCreate(CertificationData);
+const seedCertification = () => Certification.bulkCreate(certificationData);
 
 module.exports = seedCertification;

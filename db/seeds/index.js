@@ -1,9 +1,8 @@
 const seedStations = require("./station-seeds");
-const seedRoles = require("./roles-seeds");
 const seedCertification = require("./certification-seeds");
 const seedEmployee = require("./employee-seeds");
 
-const sequelize = require("../config/connection");
+const sequelize = require("../../config/connection");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });

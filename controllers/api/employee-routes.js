@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // GET /api/employee
-const { Employee, Certification, Station } = require('../models');
+const { Employee, Certification, Station } = require('../../models');
 
 
 // find all employees
