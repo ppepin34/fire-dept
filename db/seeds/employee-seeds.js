@@ -8,6 +8,7 @@ const employeeData = [
     email: "drobinson@firedeptbelize.com",
     password: "belizefd1",
     station_id: 1,
+    rank: "FireFighter"
   },
   {
     first_name: "Brittani",
@@ -16,6 +17,7 @@ const employeeData = [
     email: "bcourt@firedeptbelize.com",
     password: "belizefd1",
     station_id: 1,
+    rank: "FireFighter"
   },
   {
     first_name: "Phil",
@@ -24,6 +26,7 @@ const employeeData = [
     email: "ppepin@firedeptbelize.com",
     password: "belizefd1",
     station_id: 1,
+    rank: "FireFighter"
   },
   {
     first_name: "Megan",
@@ -32,6 +35,7 @@ const employeeData = [
     email: "mmiddleton@firedeptbelize.com",
     password: "belizefd1",
     station_id: 1,
+    rank: "FireFighter"
   },
   {
     first_name: "Dwayne",
@@ -40,6 +44,7 @@ const employeeData = [
     email: "djohnson@firedeptbelize.com",
     password: "belizefd2",
     station_id: 2,
+    rank: "FireFighter"
   },
   {
     first_name: "Jeff",
@@ -48,6 +53,7 @@ const employeeData = [
     email: "jhardy@firedeptbelize.com",
     password: "belizefd2",
     station_id: 2,
+    rank: "FireFighter"
   },
   {
     first_name: "Matt",
@@ -56,6 +62,7 @@ const employeeData = [
     email: "mhardy@firedeptbelize.com",
     password: "belizefd2",
     station_id: 2,
+    rank: "FireFighter"
   },
   {
     first_name: "John",
@@ -64,6 +71,7 @@ const employeeData = [
     email: "jhardy@firedeptbelize.com",
     password: "belizefd2",
     station_id: 2,
+    rank: "FireFighter"
   },
 ];
 
