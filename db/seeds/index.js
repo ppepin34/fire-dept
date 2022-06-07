@@ -10,9 +10,6 @@ const seedAll = async () => {
   await seedStations();
   console.log("\n----- STATIONS SEEDED -----\n");
 
-  await seedRoles();
-  // console.log('\n----- ROLES SEEDED -----\n');
-
   await seedCertification();
   // console.log('\n----- CERTIFICATIONS SEEDED -----\n');
 
