@@ -1,38 +1,40 @@
-const { Product } = require('../models');
+const { Employee } = require("../../models");
 
-const productData = [
+const employeeData = [
   {
-    product_name: 'Plain T-Shirt',
-    price: 14.99,
-    stock: 14,
-    category_id: 1,
+    first_name: "Darrin",
+    last_name: "Robinson",
+    username: "drobinson2",
+    email: "drobinson@firedeptbelize.com",
+    password: "belizefd1",
+    station_id: 1,
   },
   {
-    product_name: 'Running Sneakers',
-    price: 90.0,
-    stock: 25,
-    category_id: 5,
+    first_name: "Brittani",
+    last_name: "Court",
+    username: "bcourt1",
+    email: "bcourt@firedeptbelize.com",
+    password: "belizefd1",
+    station_id: 1,
   },
   {
-    product_name: 'Branded Baseball Hat',
-    price: 22.99,
-    stock: 12,
-    category_id: 4,
+    first_name: "Phil",
+    last_name: "Pepin",
+    username: "ppepin3",
+    email: "ppepin@firedeptbelize.com",
+    password: "belizefd1",
+    station_id: 1,
   },
   {
-    product_name: 'Top 40 Music Compilation Vinyl Record',
-    price: 12.99,
-    stock: 50,
-    category_id: 3,
-  },
-  {
-    product_name: 'Cargo Shorts',
-    price: 29.99,
-    stock: 22,
-    category_id: 2,
+    first_name: "Megan",
+    last_name: "Middleton",
+    username: "mmiddleton4",
+    email: "mmiddleton@firedeptbelize.com",
+    password: "belizefd1",
+    station_id: 1,
   },
 ];
 
-const seedProducts = () => Product.bulkCreate(productData);
+const seedEmployee = () => Employee.bulkCreate(employeeData);
 
-module.exports = seedProducts;
+module.exports = seedEmployee;
