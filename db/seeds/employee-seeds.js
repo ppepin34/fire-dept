@@ -67,8 +67,8 @@ const employeeData = [
   {
     first_name: "John",
     last_name: "Cena",
-    username: "jhardy2",
-    email: "jhardy@firedeptbelize.com",
+    username: "jcena4",
+    email: "jcena@firedeptbelize.com",
     password: "belizefd2",
     station_id: 2,
     rank: "FireFighter"
