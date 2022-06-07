@@ -1,8 +1,11 @@
 const router = require('express').Router();
-const { Employee, Certification, Station } = require('../../models');
-
 
 // GET /api/employee
+const { Employee, Certification, Station } = require('../models');
+
+
+// find all employees
+
 router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
@@ -15,13 +18,14 @@ router.get('/', (req, res) => {
 });
 
 // GET /api/employee/ID
+// find one employee
 router.get('/:id', (req, res) => {
     Employee.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },
-        attributes: ['first_name', 'last_name', 'rank'],
+
         include: [
             {
                 model: Certification,
@@ -29,7 +33,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Station,
-                attributes: ['station_name']
+                attributes: ['id', 'station_name']
             }
         ]
     })
@@ -64,7 +68,9 @@ router.post('/', (req, res) => {
         });
 });
 
+
 // POST api/employee/login
+
 router.post('/login', (req, res) => {
     Employee.findOne({
         where: {
@@ -125,6 +131,7 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
 
 
 

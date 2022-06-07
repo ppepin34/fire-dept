@@ -1,5 +1,4 @@
 const seedStations = require('./station-seeds');
-const seedRoles = require('./roles-seeds');
 const seedCertifications = require('./certification-seeds');
 const seedEmployee = require('./employee-seeds');
 
@@ -11,14 +10,14 @@ const seedAll = async () => {
   await seedStations();
   console.log('\n----- STATIONS SEEDED -----\n');
 
-  // await seedRoles();
-  // console.log('\n----- ROLES SEEDED -----\n');
+  await seedRoles();
+ // console.log('\n----- ROLES SEEDED -----\n');
 
-  // await seedCertifications();
-  // console.log('\n----- CERTIFICATIONS SEEDED -----\n');
+  await seedCertification();
+ // console.log('\n----- CERTIFICATIONS SEEDED -----\n');
 
-  // await seedEmployee();
-  // console.log('\n----- EMPLOYEES SEEDED -----\n');
+  await seedEmployee();
+ // console.log('\n----- EMPLOYEE SEEDED -----\n');
 
   process.exit(0);
 };

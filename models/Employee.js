@@ -1,15 +1,15 @@
 //import model and datatypes from sequelize
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 // encrypt passwords
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 class Employee extends Model {
-    checkPassword(loginPW){
-        return bcrypt.compareSync(loginPW, this.password);
-    }
-};
+  checkPassword(loginPW) {
+    return bcrypt.compareSync(loginPW, this.password);
+  }
+}
 
 Employee.init(
     {
@@ -71,12 +71,12 @@ Employee.init(
             }
         },
 
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'employee'
-    }
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "employee",
+  }
 );
 
 module.exports = Employee;

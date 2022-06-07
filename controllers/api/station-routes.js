@@ -1,7 +1,8 @@
 const router = require('express').Router();
+
 const { Employee, Certification, Station } = require('../../models');
 
-// GET /api/station 
+// find all stations
 router.get('/', (req, res) => {
     Station.findAll()
     .then(dbStationData => res.json(dbStationData))
@@ -11,7 +12,10 @@ router.get('/', (req, res) => {
     });
 });
 
+
 // GET /api/station/id
+// find one station
+
 router.get('/:id', (req, res) => {
     Station.findOne({
         where: {
@@ -22,12 +26,13 @@ router.get('/:id', (req, res) => {
                 model: Employee,
                 attributes: ['id', 'first_name', 'last_name', 'rank']
             },
+
+            {
+                model: Certification,
+                attributes: ['id', 'cert_name']
+            }
         ]
-        //     {
-        //         model: Certification,
-        //         attributes: ['id', 'cert_name']
-        //     }
-        // ]
+
     })
     .then(dbStationData => {
         if (!dbStationData) {
@@ -53,5 +58,6 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
 
 module.exports = router;
