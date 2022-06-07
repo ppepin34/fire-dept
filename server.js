@@ -11,11 +11,6 @@ const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 const sequelize = require("./config/connection");
 
-// model controllers (routes)
-const routes = require('./controllers/api');
-const session = require("express-session");
-
-
 const app = express();
 const PORT = process.env.PORT || 3004;
 
