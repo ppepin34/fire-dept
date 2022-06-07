@@ -53,6 +53,10 @@ Employee.init(
         station_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'station',
+                key: 'id'
+            }
         }
     },
     {

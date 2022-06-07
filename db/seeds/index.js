@@ -1,24 +1,24 @@
-const seedCategories = require('./station-seeds');
-const seedProducts = require('./roles-seeds');
-const seedTags = require('./certification-seeds');
-const seedProductTags = require('./employee-seeds');
+const seedStations = require('./station-seeds');
+const seedRoles = require('./roles-seeds');
+const seedCertifications = require('./certification-seeds');
+const seedEmployee = require('./employee-seeds');
 
-const sequelize = require('../config/connection');
+const sequelize = require('../..//config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
-  await seedCategories();
-  console.log('\n----- CATEGORIES SEEDED -----\n');
+  await seedStations();
+  console.log('\n----- STATIONS SEEDED -----\n');
 
-  await seedProducts();
-  console.log('\n----- PRODUCTS SEEDED -----\n');
+  // await seedRoles();
+  // console.log('\n----- ROLES SEEDED -----\n');
 
-  await seedTags();
-  console.log('\n----- TAGS SEEDED -----\n');
+  // await seedCertifications();
+  // console.log('\n----- CERTIFICATIONS SEEDED -----\n');
 
-  await seedProductTags();
-  console.log('\n----- PRODUCT TAGS SEEDED -----\n');
+  // await seedEmployee();
+  // console.log('\n----- EMPLOYEES SEEDED -----\n');
 
   process.exit(0);
 };

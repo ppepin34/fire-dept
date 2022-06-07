@@ -1,7 +1,7 @@
 
-const { Category } = require('../models');
+const { Station} = require('../../models');
 
-const categoryData = [
+const StationData = [
   {
     station_name: 'Belmopan',
   },
@@ -17,6 +17,6 @@ const categoryData = [
  
 ];
 
-const seedCategories = () => Category.bulkCreate(categoryData);
+const seedStations = () => Station.bulkCreate(StationData);
 
-module.exports = seedCategories;
+module.exports = seedStations;

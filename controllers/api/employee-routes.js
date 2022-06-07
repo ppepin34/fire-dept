@@ -23,10 +23,10 @@ router.get('/:id', (req, res) => {
         },
         attributes: ['first_name', 'last_name', 'rank'],
         include: [
-            // {
-            //     model: Certification,
-            //     attributes: ['id', 'cert_name']
-            // },
+            {
+                model: Certification,
+                attributes: ['id', 'cert_name']
+            },
             {
                 model: Station,
                 attributes: ['station_name']
