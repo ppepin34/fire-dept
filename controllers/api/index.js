@@ -9,6 +9,7 @@ router.use('/certification', certRoutes);
 router.use('/station', stationRoutes);
 
 
+
 router.get('/', (req, res) => {
     res.render('login')
 })

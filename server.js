@@ -1,7 +1,10 @@
 const path = require("path");
-const express = require('express');
-const session = require('express-session');
-const routes = require('./controllers');
+
+const express = require("express");
+// model controllers (routes)
+const routes = require('./controllers/api');
+const session = require("express-session");
+
 // set up Handlebars as our template of choice
 const exphbs = require("express-handlebars");
 
@@ -51,6 +54,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+
+app.use(require("./controllers/"));
 app.use(require("./controllers/api"));
 
 sequelize.sync({ force: false }).then(() => {
