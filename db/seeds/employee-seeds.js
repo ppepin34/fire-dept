@@ -33,6 +33,38 @@ const employeeData = [
     password: "belizefd1",
     station_id: 1,
   },
+  {
+    first_name: "Dwayne",
+    last_name: "The Rock Johnson",
+    username: "therock1",
+    email: "djohnson@firedeptbelize.com",
+    password: "belizefd2",
+    station_id: 2,
+  },
+  {
+    first_name: "Jeff",
+    last_name: "Hardy",
+    username: "jhardy2",
+    email: "jhardy@firedeptbelize.com",
+    password: "belizefd2",
+    station_id: 2,
+  },
+  {
+    first_name: "Matt",
+    last_name: "Hardy",
+    username: "mhardy3",
+    email: "mhardy@firedeptbelize.com",
+    password: "belizefd2",
+    station_id: 2,
+  },
+  {
+    first_name: "John",
+    last_name: "Cena",
+    username: "jhardy2",
+    email: "jhardy@firedeptbelize.com",
+    password: "belizefd2",
+    station_id: 2,
+  },
 ];
 
 const seedEmployee = () => Employee.bulkCreate(employeeData);
