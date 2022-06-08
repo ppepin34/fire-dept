@@ -17,7 +17,6 @@ Employee.belongsToMany(Certification, {
 
 Certification.belongsToMany(Employee, {
     through: EmployeeCert,
-<<<<<<< HEAD
     as: 'certifications',
     foreignKey: 'cert_id',
 });
@@ -28,10 +27,6 @@ EmployeeCert.belongsTo(Certification,{
 
 EmployeeCert.belongsTo(Employee, {
     foreignKey: 'employee_id'
-=======
-    // as: 'certifications',
-    foreignKey: 'certification_id',
->>>>>>> dd820fa5cd771a85a1f4281269aed278b8cc8ee7
 });
 
 // EmployeeCert.belongsTo(Certification, {
