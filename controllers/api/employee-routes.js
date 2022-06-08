@@ -53,13 +53,13 @@ router.get('/:id', (req, res) => {
 // POST /api/employee
 router.post('/', (req, res) => {
     Employee.create({
-        id: req.body.id,
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         username: req.body.username,
         email: req.body.email,
         rank: req.body.rank,
-        password: req.body.password
+        password: req.body.password,
+        station_id: req.body.station_id
     })
         .then(dbEmpData => res.json(dbEmpData))
         .catch(err => {
@@ -70,7 +70,6 @@ router.post('/', (req, res) => {
 
 
 // POST api/employee/login
-
 router.post('/login', (req, res) => {
     Employee.findOne({
         where: {

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { Employee, Certification, Station } = require('../../models');
+const { Employee, Certification, Station, EmployeeCert} = require('../../models');
 
 // find all stations
 router.get('/', (req, res) => {
@@ -24,12 +24,13 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Employee,
-                attributes: ['id', 'first_name', 'last_name', 'rank']
-            },
-
-            {
-                model: Certification,
-                attributes: ['id', 'cert_name']
+                attributes: ['id', 'first_name', 'last_name', 'rank'],
+                include: [
+                    {
+                        model: Certification,
+                        attributes: ['cert_name']
+                    }
+                ]
             }
         ]
 

@@ -19,7 +19,7 @@ EmployeeCert.init(
                 key: 'id'
             }
         },
-        cert_id: {
+        certification_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'certification',
@@ -32,7 +32,7 @@ EmployeeCert.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Employee_cert'
+        modelName: 'employee_cert'
     }
 );
 
