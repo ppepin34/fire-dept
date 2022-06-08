@@ -1,6 +1,7 @@
 const seedStations = require("./station-seeds");
 const seedCertification = require("./certification-seeds");
 const seedEmployee = require("./employee-seeds");
+const seedEmployeeCert = require('./EmployeeCert');
 
 const sequelize = require("../../config/connection");
 
@@ -11,10 +12,13 @@ const seedAll = async () => {
   console.log("\n----- STATIONS SEEDED -----\n");
 
   await seedCertification();
-  // console.log('\n----- CERTIFICATIONS SEEDED -----\n');
+  console.log('\n----- CERTIFICATIONS SEEDED -----\n');
 
   await seedEmployee();
-  // console.log('\n----- EMPLOYEE SEEDED -----\n');
+  console.log('\n----- EMPLOYEE SEEDED -----\n');
+
+  await seedEmployeeCert();
+  console.log('\n----- EMPLOYEECERT SEEDED -----\n');
 
   process.exit(0);
 };
