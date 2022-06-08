@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
                 include: [
                     {
                         model: Certification,
-                        attributes: ['certification_name']
+                        attributes: ['cert_name']
                     }
                 ]
             }
