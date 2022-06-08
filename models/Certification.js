@@ -12,7 +12,7 @@ Certification.init(
             primaryKey: true,
             autoIncrement: true 
         },
-        cert_name: {
+        certification_name: {
             type: DataTypes.STRING,
             allowNull: false,
         }
