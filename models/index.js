@@ -5,13 +5,9 @@ const Station = require('./Station');
 const EmployeeCert = require('./employeecert');
 
 //create associations
-Employee.belongsTo(Station, {
-    foreignKey: 'employee_id'
-});
+Employee.belongsTo(Station);
 
-Station.hasMany(Employee, {
-    foreignKey: 'employee_id'
-});
+Station.hasMany(Employee);
 
 Employee.belongsToMany(Certification, {
     through: EmployeeCert,
