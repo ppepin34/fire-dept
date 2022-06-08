@@ -11,4 +11,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/stations', (req, res) => {
+  res.render('stations');
+});
+
+router.get('/info', (req, res) => {
+  res.render('info');
+});
+
 module.exports = router;
