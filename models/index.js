@@ -22,7 +22,15 @@ Employee.belongsToMany(Certification, {
 Certification.belongsToMany(Employee, {
     through: EmployeeCert,
     as: 'certifications',
-    foreignKey: 'certification_id',
+    foreignKey: 'cert_id',
+});
+
+EmployeeCert.belongsTo(Certification,{
+    foreignKey: 'cert_id'
+});
+
+EmployeeCert.belongsTo(Employee, {
+    foreignKey: 'employee_id'
 });
 
 module.exports = { Employee, Certification, Station };
