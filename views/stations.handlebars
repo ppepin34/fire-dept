@@ -1,11 +1,17 @@
 <header>Belize National Fire Serve</header>
 <div id="box" class="container">
     <div class="row">
-        <button class="stationBtn col" id="stationone">Toledo Fire Station</button>
+       {{#each stations as |station|}}
+            {{> stationBtn station}}
+       {{/each}}
         <button class="stationBtn col" id="stationtwo">Belize City Northside Fire Station</button>
     </div>
     <div class="row">
         <button class="stationBtn col" id="stationthree">Stann Creek Fire Station</button>
         <button class="stationBtn col" id="stationfour">Caye Caulker Fire Station</button>
     </div>
+ <a href="/station/{{id}}">{{station.name}} </a>
 </div>
+{{#if loggedIn}}
+<script src="/public/javascript/logout.js"></script> 
+{{/if}}
