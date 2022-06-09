@@ -73,7 +73,7 @@ router.post('/',withAuth, (req, res) => {
     });
 
 // POST /api/login
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
         Employee.findOne({
           where: {
             email: req.body.email
@@ -96,11 +96,12 @@ router.post('/login', withAuth, (req, res) => {
             req.session.user_id = dbEmpData.id;
             req.session.username = dbEmpData.username;
             req.session.loggedIn = true;
+            console.log(req.session.loggedIn);
       
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });
         });
-        console.log(req.session.loggedIn);
+        // console.log(req.session.loggedIn);
       });
 
 // PUT /api/employee/1
