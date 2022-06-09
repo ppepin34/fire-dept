@@ -4,15 +4,29 @@ ul.uk-navbar-nav li a {
     font-size: 25px;
 }
 /* header and footer */
-header, 
-footer {
+header {
     background-color: red;
-    opacity: .5;
+    opacity: .7;
     font-size: 50px;
     font-weight: bold;
     color: white;
     text-align: center;
     padding: 15px;
+}
+
+footer {
+    background-color: red;
+    opacity: .7;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+img {
+    height: 235px;
+    width: 235px;
 }
 
 /* homepage text under header */

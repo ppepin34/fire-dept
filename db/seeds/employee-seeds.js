@@ -161,6 +161,16 @@ const employeeData = [
     station_id: 4,
     
   },
+  {
+    first_name: "Bob",
+    last_name: "Villa",
+    username: "bobvilla1",
+    email: "bobvilla@gmail.com",
+    rank: "Firefighter",
+    password: "password",
+    station_id: 1,
+    certIds: []
+  }
 ];
 
 const seedEmployee = () => Employee.bulkCreate(employeeData);

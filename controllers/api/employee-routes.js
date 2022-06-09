@@ -1,9 +1,8 @@
 const router = require('express').Router();
+const { Employee, Certification, Station, EmployeeCert } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/employee
-const { Employee, Certification, Station, EmployeeCert } = require('../../models');
-
-
 // find all employees
 
 router.get('/', (req, res) => {
@@ -51,7 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/employee
-router.post('/', (req, res) => {
+router.post('/',withAuth, (req, res) => {
     Employee.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -97,14 +96,16 @@ router.post('/login', (req, res) => {
             req.session.user_id = dbEmpData.id;
             req.session.username = dbEmpData.username;
             req.session.loggedIn = true;
+            console.log(req.session.loggedIn);
       
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });
         });
+        // console.log(req.session.loggedIn);
       });
 
 // PUT /api/employee/1
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Employee.update(req.body, {
         individualHooks: true,
         where: {
@@ -147,7 +148,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE /api/employee/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Employee.destroy({
         where: {
             id: req.params.id
@@ -166,7 +167,16 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-
-
+// logout
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;

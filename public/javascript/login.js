@@ -16,11 +16,11 @@ async function loginFormHandler(event) {
     // check the response status
     if (response.ok) {
         console.log('success');
-        document.location.replace('/');
+        // document.location.replace('/');
       } else {
         alert('Login attempt unsuccessful. Please check your email and password and try again.');
       }
     }
-  }
-  
+  };
+
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

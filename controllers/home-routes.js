@@ -4,10 +4,18 @@ const { Employee, Station, Certification } = require('../models');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  res.render('homepage');
+  console.log(req.session.loggedIn);
+  res.render('homepage', {
+    loggedIn: req.session.loggedIn
+  });
 });
 
 router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
   res.render('login');
 });
 
@@ -33,6 +41,31 @@ router.get('/stations', (req, res) => {
 
 
 router.get('/info', (req, res) => {
+  Employee.findAll({
+    exclude: 'password',
+    include: [{
+      model: Certification
+  },
+  {
+    model:Station,
+    attributes: 'station_name'
+  }
+]
+  })
+  .then(dbEmployeeDate => {
+    const employees = dbEmployeeDate.map(employee => employee.git({ plain: true}))
+    res.render ('info',{employees, loggedIn: req.session.loggedIn});
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+});
+  
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
   res.render('info');
 });
 
