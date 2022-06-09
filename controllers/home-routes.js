@@ -39,15 +39,24 @@ router.get('/stations', (req, res) => {
     });
 });
 
+// router.get('/info', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.render('info', {
+//       // loggedIn: req.session.loggedIn,
+//     });
+//     return;
+//   }
+
+//   res.render('/login')
+// });
+
 router.get('/info', (req, res) => {
   if (req.session.loggedIn) {
-    res.render('info', {
-      loggedIn: req.session.loggedIn,
-    });
+    res.redirect('/');
     return;
   }
 
-  res.render('/login')
+  res.render('info');
 });
 
 module.exports = router;
