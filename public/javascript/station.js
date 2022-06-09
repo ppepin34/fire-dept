@@ -1,3 +1,5 @@
+const { render, redirect } = require("express/lib/response");
+
 async function stationClickHandler(event) {
     event.preventDefault();
   
@@ -17,6 +19,24 @@ async function stationClickHandler(event) {
    } else {
      alert(response.statusText);
    }
- }
+}
+
+// function info() {
+//   router.get('/info', (req, res) => {
+//     if (req.session.loggedIn) {
+//       res.render('info', {
+//         // loggedIn: req.session.loggedIn,
+//       });
+//       return;
+//     }
   
- document.querySelector('.stationone-btn').addEventListener('click', stationClickHandler);
+//     res.render('info')
+//   })
+// };
+
+const stationBtn = document.getElementsByClassName('stationBtn');
+stationBtn.addEventListener('click', res.redirect('/info'));
+
+  
+document.querySelector('.stationone-btn').addEventListener('click', stationClickHandler);
+ 
