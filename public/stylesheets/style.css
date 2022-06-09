@@ -6,7 +6,7 @@ ul.uk-navbar-nav li a {
 /* header and footer */
 header {
     background-color: red;
-    opacity: .6;
+    opacity: .7;
     font-size: 50px;
     font-weight: bold;
     color: white;
@@ -16,7 +16,7 @@ header {
 
 footer {
     background-color: red;
-    opacity: .5;
+    opacity: .7;
     font-size: 25px;
     font-weight: bold;
     color: white;
