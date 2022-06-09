@@ -62,48 +62,46 @@ router.post('/', (req, res) => {
         station_id: req.body.station_id,
         certIds: req.body.certIds
     })
-        .then((dbEmpData) => {
-            // if employee has certs, create pairings to bulk create in EmployeeCert
-            if (req.body.certIds.length) {
-                const employeeCertIdArr = req.body.certIds.map((cert_id) => {
-                    return {
-                        employee_id: dbEmpData.id,
-                        cert_id
-                    };
-                });
-                return EmployeeCert.bulkCreate(employeeCertIdArr);
-            }
-            // if no certs, respond
-            res.status(200).json(dbEmpData);
-        })
-        .then((EmployeeCertIds) => res.status(200).json(EmployeeCertIds))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
+    .then(dbEmpData => {
+        req.session.save(() => {
+          req.session.user_id = dbEmpData.id;
+          req.session.username = dbEmpData.username;
+          req.session.loggedIn = true;
+      
+          res.json(dbEmpData);
         });
-});
-
-
-// POST api/employee/login
-router.post('/login', (req, res) => {
-    Employee.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(dbEmpData => {
-        if (!dbEmpData) {
-            res.status(400).json({ message: 'No employee with this email address' });
-            return;
-        }
-        const validatePassword = dbEmpData.checkPassword(req.body.password);
-
-        if (!validatePassword) {
-            res.status(400).json({ message: 'Incorrect password' });
-            return;
-        }
-        res.json({ employee: dbEmpData, message: 'You are now logged in' });
+      })
     });
-});
+
+// POST /api/login
+router.post('/login', (req, res) => {
+        Employee.findOne({
+          where: {
+            email: req.body.email
+          }
+        }).then(dbEmpData => {
+            if (!dbEmpData) {
+                res.status(400).json({ message: 'No employee with this email address' });
+                return;
+            }
+      
+            const validatePassword = dbEmpData.checkPassword(req.body.password);
+      
+            if (!validatePassword) {
+                res.status(400).json({ message: 'Incorrect password' });
+                return;
+            }
+      
+          req.session.save(() => {
+            // declare session variables
+            req.session.user_id = dbEmpData.id;
+            req.session.username = dbEmpData.username;
+            req.session.loggedIn = true;
+      
+            res.json({ user: dbEmpData, message: 'You are now logged in!' });
+          });
+        });
+      });
 
 // PUT /api/employee/1
 router.put('/:id', (req, res) => {

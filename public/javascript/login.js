@@ -15,10 +15,10 @@ async function loginFormHandler(event) {
       });
     // check the response status
     if (response.ok) {
-        console.log('success')
+        console.log('success');
         document.location.replace('/');
       } else {
-        alert(response.statusText);
+        alert('Login attempt unsuccessful. Please check your email and password and try again.');
       }
     }
   }
