@@ -24,6 +24,11 @@ footer {
     padding: 15px;
 }
 
+img {
+    height: 235px;
+    width: 235px;
+}
+
 /* homepage text under header */
 #homeText {
     font-size: 20px;
