@@ -1,19 +1,15 @@
 <header>Belize National Fire Service</header>
 <div id="box" class="container">
-    <div class="row">
-    
+    <div class="row">    
     <button class="stationBtn col" id="stationone">San Ignacio Fire Station</button>
-           {{#each stations as |station|}}
-            {{> stationBtn stationone}}
-       {{/each}}
-        <button class="stationBtn col" id="stationtwo">Belize City Northside Fire Station</button>
+    <button class="stationBtn col" id="stationtwo">Belize City Northside Fire Station</button>
     </div>
     <div class="row">
         <button class="stationBtn col" id="stationthree">Benque Fire Station</button>
         <button class="stationBtn col" id="stationfour">Santa Elena Fire Station</button>
     </div>
- <a href="/station/{{id}}">{{station.name}} </a>
+ 
 </div>
-{{#if loggedIn}}
-<script src="/public/javascript/logout.js"></script> 
-{{/if}}
+ <a href="/station/{{id}}"{{ station.name }}></a> 
+
+

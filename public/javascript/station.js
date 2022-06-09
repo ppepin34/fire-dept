@@ -1,22 +1,7 @@
-async function stationClickHandler(event) {
-    event.preventDefault();
-  
+var buttonEl = document.querySelector("#stationone");
 
-    const response = await fetch('/api/station/employee', {
-      method: 'post',
-      body: JSON.stringify({
-       post_id: id
-     }),
-      headers: {
-        'Content-Type': 'application/json'
-     }
-   });
-  
-   if (response.ok) {
-     document.location.reload();
-   } else {
-     alert(response.statusText);
-   }
- }
-  
- document.querySelector('.stationone-btn').addEventListener('click', stationClickHandler);
+console.log("Clicked");
+
+
+
+document.querySelector("#stationone").addEventListener("click");

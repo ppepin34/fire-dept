@@ -12,8 +12,25 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/stations', (req, res) => {
-  res.render('stations');
+  console.log(req.session);
+  Station.findAll({
+      attributes: [
+          'station_name'
+      ],
+  })
+      .then(dbStationData => {
+          const stations = dbStationData.map(station => station.get({ plain: true }))
+          res.render('stations', {
+              stations,
+              loggedIn: req.session.loggedIn
+          });
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
 });
+
 
 router.get('/info', (req, res) => {
   res.render('info');
