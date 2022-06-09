@@ -26,7 +26,7 @@ const employeeData = [
     last_name: "Pepin",
     username: "ppepin3",
     email: "ppepin@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Lieutenant",
     password: "belizefd1",
     station_id: 1,
    
@@ -36,7 +36,7 @@ const employeeData = [
     last_name: "Middleton",
     username: "mmiddleton4",
     email: "mmiddleton@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Captain",
     password: "belizefd1",
     station_id: 1,
     
@@ -66,7 +66,7 @@ const employeeData = [
     last_name: "Hardy",
     username: "mhardy3",
     email: "mhardy@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Lieutenant",
     password: "belizefd2",
     station_id: 2,
     
@@ -76,7 +76,7 @@ const employeeData = [
     last_name: "Cena",
     username: "jcena4",
     email: "jcena@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Captain",
     password: "belizefd2",
     station_id: 2,
    
@@ -106,7 +106,7 @@ const employeeData = [
     last_name: "Doncic",
     username: "ldoncic3",
     email: "ldoncic@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Lieutenant",
     password: "belizefd3",
     station_id: 3,
     
@@ -116,7 +116,7 @@ const employeeData = [
     last_name: "James",
     username: "ljames4",
     email: "ljames@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Captain",
     password: "belizefd3",
     station_id: 3,
     
@@ -146,7 +146,7 @@ const employeeData = [
     last_name: "Stark",
     username: "metalguy3",
     email: "tstark@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Lieutenant",
     password: "belizefd4",
     station_id: 4,
     
@@ -156,7 +156,7 @@ const employeeData = [
     last_name: "Tchalla",
     username: "wakanda4",
     email: "ktchalla@firedeptbelize.com",
-    rank: "FireFighter",
+    rank: "Captain",
     password: "belizefd4",
     station_id: 4,
     
