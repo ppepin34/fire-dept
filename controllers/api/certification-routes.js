@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Employee, Certification, Station } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // GET /api/certification
 router.get('/', (req, res) => {
@@ -32,7 +33,7 @@ router.get('/:id', (req, res) => {
   });
 
 // POST /api/certification
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Certification.create({
       cert_name: req.body.cert_name,
     })
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
   });
 
 // PUT /api/certification/1
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Certification.update(req.body, {
       where: {
         id: req.params.id
@@ -64,7 +65,7 @@ router.put('/:id', (req, res) => {
   });
   
 // DELETE /api/certification/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Certification.destroy({
       where: {
         id: req.params.id

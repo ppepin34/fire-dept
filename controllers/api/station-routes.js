@@ -1,6 +1,6 @@
 const router = require('express').Router();
-
 const { Employee, Certification, Station, EmployeeCert} = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // find all stations
 router.get('/', (req, res) => {
@@ -49,7 +49,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/station
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Station.create({
       station_name: req.body.station_name,
     })
