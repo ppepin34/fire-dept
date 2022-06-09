@@ -34,4 +34,3 @@ async function addEmpFormHandler(event) {
   };
 
 document.querySelector('.add-employee').addEventListener('submit', addEmpFormHandler);
-UIkit.modal('submit').hide();
