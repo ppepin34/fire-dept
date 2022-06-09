@@ -39,24 +39,24 @@ router.get('/stations', (req, res) => {
     });
 });
 
-// router.get('/info', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.render('info', {
-//       // loggedIn: req.session.loggedIn,
-//     });
-//     return;
-//   }
-
-//   res.render('/login')
-// });
-
 router.get('/info', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('info', {
+      // loggedIn: req.session.loggedIn,
+    });
     return;
   }
 
-  res.render('info');
+  res.render('login')
 });
+
+router.get('/station', (req, res) => {
+  if (req.session.loggedIn) {
+    res.render('single-station');
+    return;
+  }
+
+  res.render('login')
+})
 
 module.exports = router;
