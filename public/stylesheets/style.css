@@ -4,11 +4,20 @@ ul.uk-navbar-nav li a {
     font-size: 25px;
 }
 /* header and footer */
-header, 
+header {
+    background-color: red;
+    opacity: .6;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
 footer {
     background-color: red;
     opacity: .5;
-    font-size: 50px;
+    font-size: 25px;
     font-weight: bold;
     color: white;
     text-align: center;
