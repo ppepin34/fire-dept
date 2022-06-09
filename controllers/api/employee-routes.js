@@ -100,6 +100,7 @@ router.post('/login', withAuth, (req, res) => {
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });
         });
+        console.log(req.session.loggedIn);
       });
 
 // PUT /api/employee/1
@@ -165,7 +166,7 @@ router.delete('/:id', withAuth, (req, res) => {
         });
 });
 
-// logout route
+// logout
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
