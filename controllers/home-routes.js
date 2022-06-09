@@ -21,11 +21,7 @@ router.get('/login', (req, res) => {
 
 router.get('/stations', (req, res) => {
   console.log(req.session.loggedIn);
-  Station.findAll({
-    attributes: [
-      'station_name'
-    ],
-  })
+  Station.findAll({})
     .then(dbStationData => {
       const stations = dbStationData.map(station => station.get({ plain: true }))
       res.render('stations', {
@@ -50,13 +46,43 @@ router.get('/info', (req, res) => {
   res.render('login')
 });
 
-router.get('/station', (req, res) => {
-  if (req.session.loggedIn) {
-    res.render('single-station');
-    return;
-  }
+router.get('/stations/:id', (req, res) => {
+  Station.findOne({
+    where: {
+      id: req.params.id
+    },
+     include: [
+      {
+        model: Employee,
+        attributes: ['id', 'first_name', 'last_name', 'rank'],
+        include: [
+          {
+            model: Certification,
+            attributes: ['cert_name']
+          }
+        ]
+      }
+    ]
+  })
+  .then(dbStationData => {
+    if (!dbStationData) {
+      res.status(404).json({ message: 'No station found with this id'});
+      return;
+    }
 
-  res.render('login')
-})
+    //serialize the data
+    const station = dbStationData.get({ plain: true });
+
+    // pass data to template
+    res.render('single-station', {
+      station,
+      loggedIn: req.session.loggedIn
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
 module.exports = router;
