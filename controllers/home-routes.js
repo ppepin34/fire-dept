@@ -38,33 +38,33 @@ router.get('/stations', (req, res) => {
 
 router.get('/info', (req, res) => {
   Employee.findAll({
-    exclude: 
-      'password',
-      include: [{
-        model: Certification,
-  },
-  {
-    model: Station,
-    attributes: 'station_name'
-  }
-]
+    exclude:
+      ['password'],
+    include: [{
+      model: Certification,
+    },
+    {
+      model: Station,
+      attributes: ['station_name']
+    }
+    ]
   })
-  .then(dbEmpData => {
-    const employees = dbEmpData.map(employee => employee.get({ plain: true }))
-    res.render('info', { employees, loggedIn: req.session.loggedIn });
-  })
+    .then(dbEmpData => {
+      const employees = dbEmpData.map(employee => employee.get({ plain: true }))
+      res.render('info', { employees, loggedIn: req.session.loggedIn });
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/stations/:id', (req, res) => {
+router.get('/station/:id', (req, res) => {
   Station.findOne({
     where: {
       id: req.params.id
     },
-     include: [
+    include: [
       {
         model: Employee,
         attributes: ['id', 'first_name', 'last_name', 'rank'],
@@ -77,25 +77,25 @@ router.get('/stations/:id', (req, res) => {
       }
     ]
   })
-  .then(dbStationData => {
-    if (!dbStationData) {
-      res.status(404).json({ message: 'No station found with this id'});
-      return;
-    }
+    .then(dbStationData => {
+      if (!dbStationData) {
+        res.status(404).json({ message: 'No station found with this id' });
+        return;
+      }
 
-    //serialize the data
-    const station = dbStationData.get({ plain: true });
+      //serialize the data
+      const station = dbStationData.get({ plain: true });
 
-    // pass data to template
-    res.render('single-station', {
-      station,
-      loggedIn: req.session.loggedIn
+      // pass data to template
+      res.render('single-station', {
+        station,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
 });
 
 module.exports = router;
