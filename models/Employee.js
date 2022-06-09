@@ -21,7 +21,7 @@ Employee.init(
         },
         first_name: {
             type: DataTypes.STRING,
-            //allowNull: false,
+            allowNull: false,
         },
         last_name: {
             type: DataTypes.STRING,

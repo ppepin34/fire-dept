@@ -1,24 +1,24 @@
-function addEmpFormHandler(event) {
+async function addEmpFormHandler(event) {
     event.preventDefault();
 
-    const lastname = document.querySelector('#modalLN').value.trim();
-    const firstName = document.querySelector('#modalFN').value.trim();
+    const last_name = document.querySelector('#modalLN').value.trim();
+    const first_name = document.querySelector('#modalFN').value.trim();
     const username = document.querySelector('#modalUN').value.trim();
     const email = document.querySelector('#modalEmail').value.trim();
     const rank = document.querySelector('#modalRank').value.trim();
-    const stationID = document.querySelector('#modalSID').value.trim();
+    const station_id = parseInt(document.querySelector('#modalSID').value);
     const password = document.querySelector('#modalPW').value.trim();
   
     if (username && email && password) {
-      const response = fetch('/api/employee', {
+      const response = await fetch('/api/employee', {
         method: 'post',
         body: JSON.stringify({
-          lastname,
-          firstName,
+          last_name,
+          first_name,
           username,
           email,
           rank,
-          stationID,
+          station_id,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
@@ -34,3 +34,4 @@ function addEmpFormHandler(event) {
   };
 
 document.querySelector('.add-employee').addEventListener('submit', addEmpFormHandler);
+UIkit.modal('submit').hide();
