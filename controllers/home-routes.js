@@ -1,3 +1,4 @@
+const { response } = require('express');
 const sequelize = require('../config/connection');
 const { Employee, Station, Certification } = require('../models');
 
@@ -40,14 +41,26 @@ router.get('/stations', (req, res) => {
 });
 
 router.get('/info', (req, res) => {
-  if (req.session.loggedIn) {
-    res.render('info', {
-      // loggedIn: req.session.loggedIn,
-    });
-    return;
+  Employee.findAll({
+    exclude: 
+      'password',
+      include: [{
+        model: Certification,
+  },
+  {
+    model: Station,
+    attributes: 'station_name'
   }
-
-  res.render('login')
+]
+  })
+  .then(dbEmpData => {
+    const employees = dbEmpData.map(employee => employee.get({ plain: true }))
+    res.render('info', { employees, loggedIn: req.session.loggedIn });
+  })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get('/station', (req, res) => {

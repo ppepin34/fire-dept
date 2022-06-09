@@ -9,7 +9,10 @@ router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
     })
-        .then(dbEmpData => res.json(dbEmpData))
+        .then(dbEmpData => {
+            const employees = dbEmpData.map(employee => employee.get({ plain: true }));
+            
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
