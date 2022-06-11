@@ -9,7 +9,10 @@ router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
     })
-        .then(dbEmpData => res.json(dbEmpData))
+        .then(dbEmpData => {
+            const employees = dbEmpData.map(employee => employee.get({ plain: true }));
+            
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -50,7 +53,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/employee
-router.post('/',withAuth, (req, res) => {
+router.post('/', (req, res) => {
     Employee.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -97,6 +100,7 @@ router.post('/login', (req, res) => {
             req.session.username = dbEmpData.username;
             req.session.loggedIn = true;
             console.log(req.session.loggedIn);
+            console.log(req.session.user_id);
       
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });

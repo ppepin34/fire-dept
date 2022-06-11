@@ -22,13 +22,13 @@
           </a>
           <ul class="uk-navbar-nav">
             <li class="uk-active"> <a href="/">BNSF</a></li>
-            {{#if loggedIn}}
-           <li> <button id="logout" class="btn-no-style">Logout</button></li>
+            {{!-- {{#if loggedIn}} --}}
+           <li> <a href="/login" id="logout" class="btn-no-style">Logout</a></li>
            <li><a href="/stations">Stations</a></li>
             <li> <a href="/info">Info</a></li>
-            {{else}}
+            {{!-- {{else}} --}}
             <li> <a href="/login">Login</a></li>
-            {{/if}}
+            {{!-- {{/if}} --}}
           </ul>
         </div>
         <div class="uk-navbar-right">
@@ -58,5 +58,8 @@
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 </body>
 </html>

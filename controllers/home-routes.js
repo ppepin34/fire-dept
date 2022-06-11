@@ -1,3 +1,4 @@
+const { response } = require('express');
 const sequelize = require('../config/connection');
 const { Employee, Station, Certification } = require('../models');
 
@@ -42,13 +43,13 @@ router.get('/stations', (req, res) => {
 
 router.get('/info', (req, res) => {
   Employee.findAll({
-    exclude: 'password',
+    exclude: ['password'],
     include: [{
       model: Certification
   },
   {
     model:Station,
-    attributes: 'station_name'
+    attributes: ['station_name']
   }
 ]
   })
@@ -62,11 +63,11 @@ router.get('/info', (req, res) => {
 });
   
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.render('single-station');
     return;
   }
 
-  res.render('info');
-});
+  res.render('login')
+})
 
 module.exports = router;

@@ -109,12 +109,40 @@ img {
     
 }
 
-/* add, update delete buttons */
+/* ------ add, update delete buttons -------*/
+
+/* all 3 buttons container */
 #infoBtns {
     padding: 25px;
-    border-radius: 2px;
-    margin: 15px;
     text-align: center;
     border-radius: 3px;
+}
+
+/* each individual button */
+.infoBtn {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 2px;
+    background-color: bisque;
+    font-weight: bold;
+}
+
+.infoBtn:hover{
+ background-color:antiquewhite;
+}
+
+
+/* rendered links */
+.stationBtn {
+    
+}
+
+#modalHeader {
+    text-align: center;
+}
+
+/* modal text sections */
+.enter {
+    margin: 8px;
 }
 
