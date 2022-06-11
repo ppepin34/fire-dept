@@ -60,20 +60,22 @@ router.get('/info', (req, res) => {
 });
 
 router.get('/station/:id', (req, res) => {
-  Station.findOne({
+  Employee.findAll({
     where: {
-      id: req.params.id
+      station_id: req.params.id
     },
+    attributes: [
+      'id',
+      'first_name',
+      'last_name',
+      'rank',
+    ],
     include: [
       {
-        model: Employee,
-        attributes: ['id', 'first_name', 'last_name', 'rank'],
-        include: [
-          {
-            model: Certification,
-            attributes: ['cert_name']
-          }
-        ]
+        model: Certification,
+      },
+      {
+        model: Station,
       }
     ]
   })
@@ -83,12 +85,15 @@ router.get('/station/:id', (req, res) => {
         return;
       }
 
+      
+
       //serialize the data
-      const station = dbStationData.get({ plain: true });
+      const employees = dbStationData.map(employee => employee.get({ plain: true }));
+      console.log(employees)
 
       // pass data to template
       res.render('single-station', {
-        station,
+        employees,
         loggedIn: req.session.loggedIn
       });
     })
