@@ -21,53 +21,86 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/stations', (req, res) => {
-  console.log(req.session);
-  Station.findAll({
-      attributes: [
-          'station_name'
-      ],
-  })
-      .then(dbStationData => {
-          const stations = dbStationData.map(station => station.get({ plain: true }))
-          res.render('stations', {
-              stations,
-              loggedIn: req.session.loggedIn
-          });
-      })
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
+  console.log(req.session.loggedIn);
+  Station.findAll({})
+    .then(dbStationData => {
+      const stations = dbStationData.map(station => station.get({ plain: true }))
+      res.render('stations', {
+        stations,
+        loggedIn: req.session.loggedIn
       });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
-
 
 router.get('/info', (req, res) => {
   Employee.findAll({
-    exclude: ['password'],
+    exclude:
+      ['password'],
     include: [{
-      model: Certification
-  },
-  {
-    model:Station,
-    attributes: ['station_name']
-  }
-]
+      model: Certification,
+    },
+    {
+      model: Station,
+      attributes: ['station_name']
+    }
+    ]
   })
-  .then(dbEmployeeDate => {
-    const employees = dbEmployeeDate.map(employee => employee.git({ plain: true}))
-    res.render ('info',{employees, loggedIn: req.session.loggedIn});
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
+    .then(dbEmpData => {
+      const employees = dbEmpData.map(employee => employee.get({ plain: true }))
+      res.render('info', { employees, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
-  
-  if (req.session.loggedIn) {
-    res.render('single-station');
-    return;
-  }
 
-  res.render('login')
-})
+router.get('/station/:id', (req, res) => {
+  Employee.findAll({
+    where: {
+      station_id: req.params.id
+    },
+    attributes: [
+      'id',
+      'first_name',
+      'last_name',
+      'rank',
+    ],
+    include: [
+      {
+        model: Certification,
+      },
+      {
+        model: Station,
+      }
+    ]
+  })
+    .then(dbStationData => {
+      if (!dbStationData) {
+        res.status(404).json({ message: 'No station found with this id' });
+        return;
+      }
+
+      
+
+      //serialize the data
+      const employees = dbStationData.map(employee => employee.get({ plain: true }));
+      console.log(employees)
+
+      // pass data to template
+      res.render('single-station', {
+        employees,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;
