@@ -1,6 +1,7 @@
 const { response } = require('express');
 const sequelize = require('../config/connection');
 const { Employee, Station, Certification } = require('../models');
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
@@ -20,7 +21,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/stations', (req, res) => {
+router.get('/stations', withAuth, (req, res) => {
   console.log(req.session.loggedIn);
   Station.findAll({})
     .then(dbStationData => {
@@ -36,7 +37,7 @@ router.get('/stations', (req, res) => {
     });
 });
 
-router.get('/info', (req, res) => {
+router.get('/info', withAuth, (req, res) => {
   Employee.findAll({
     exclude:
       ['password'],
@@ -59,21 +60,23 @@ router.get('/info', (req, res) => {
     });
 });
 
-router.get('/station/:id', (req, res) => {
-  Station.findOne({
+router.get('/station/:id', withAuth, (req, res) => {
+  Employee.findAll({
     where: {
-      id: req.params.id
+      station_id: req.params.id
     },
+    attributes: [
+      'id',
+      'first_name',
+      'last_name',
+      'rank',
+    ],
     include: [
       {
-        model: Employee,
-        attributes: ['id', 'first_name', 'last_name', 'rank'],
-        include: [
-          {
-            model: Certification,
-            attributes: ['cert_name']
-          }
-        ]
+        model: Certification,
+      },
+      {
+        model: Station,
       }
     ]
   })
@@ -83,12 +86,15 @@ router.get('/station/:id', (req, res) => {
         return;
       }
 
+      
+
       //serialize the data
-      const station = dbStationData.get({ plain: true });
+      const employees = dbStationData.map(employee => employee.get({ plain: true }));
+      console.log(employees)
 
       // pass data to template
       res.render('single-station', {
-        station,
+        employees,
         loggedIn: req.session.loggedIn
       });
     })

@@ -3,12 +3,12 @@
 <div>
      <div id="employeeHeader">Employees</div>
         <div id="infoReceive">
-            <ol>
-                <li>Terry Cruize Captain CPR Certification</li>
-                <li>Chance Williams Lietenant Certification</li>
-                <li>Clarence Sawyer Firefighter Certification</li>
-                <li>James Edmond Lietenant Certification</li>
-                <li>Olivia Chapman Captain Certification</li>
+             <ol class="employee-list">
+                {{#each employees as |employee|}}
+                <li>
+                {{> employeeinfo employee}}
+                </li>
+                {{/each}}
             </ol>
         </div>
     <div id="infoBtns">
