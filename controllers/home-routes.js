@@ -1,6 +1,7 @@
 const { response } = require('express');
 const sequelize = require('../config/connection');
 const { Employee, Station, Certification } = require('../models');
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
@@ -20,7 +21,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/stations', (req, res) => {
+router.get('/stations', withAuth, (req, res) => {
   console.log(req.session.loggedIn);
   Station.findAll({})
     .then(dbStationData => {
@@ -36,7 +37,7 @@ router.get('/stations', (req, res) => {
     });
 });
 
-router.get('/info', (req, res) => {
+router.get('/info', withAuth, (req, res) => {
   Employee.findAll({
     exclude:
       ['password'],
@@ -59,7 +60,7 @@ router.get('/info', (req, res) => {
     });
 });
 
-router.get('/station/:id', (req, res) => {
+router.get('/station/:id', withAuth, (req, res) => {
   Employee.findAll({
     where: {
       station_id: req.params.id
