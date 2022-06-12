@@ -35,6 +35,7 @@
         <div class="uk-navbar-right">
             {{#if loggedIn}}
             <ul class="uk-navbar-nav align-items-center uk-visible@m">
+              {{!-- href set to login to take you back to login page when you choose log out --}}
               <li> <a href="/login" id="logout" class="btn-no-style">Logout</a></li>
               <li> <a href="/stations">Stations</a></li>
               <li> <a href="/info">Info</a></li>
