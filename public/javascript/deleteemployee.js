@@ -1,22 +1,21 @@
 async function deleteFormHandler(event) {
     event.preventDefault();
+    console.log('this');
   
-    const last_name = document.querySelector('#modaldeleteLN').value.trim();
-    const first_name = document.querySelector('#modaldeleteFN').value.trim();
-    const email = document.querySelector('#modaldeleteEmail').value.trim();
+    const id = document.querySelector('#deleteEmployee').value;
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/employee/${id}`, {
       method: 'DELETE'
     });
   
     if (response.ok) {
-      document.location.replace('/dashboard/');
+      document.location.replace('/info/');
     } else {
       alert(response.statusText);
     }
   }
   
-  document.querySelector('.delete-employeemodal').addEventListener('click', deleteFormHandler);
+  document.querySelector('#delete-employeemodal').addEventListener('submit', deleteFormHandler);
   
 
   //work in progress//

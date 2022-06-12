@@ -107,7 +107,7 @@
                 <h2 class="uk-modal-title" id="deletemodalHeader">Enter in the Employees Information Below to Delete</h2>
             </div>
             <div class="uk-modal-body">
-                <form class="delete-employee uk-form" uk-grid>
+                <form id="deleteEmployee" class="delete-employee uk-form" uk-grid>
 
                     <select class="uk-select">
                         {{#each employees}}
@@ -192,7 +192,12 @@
     </div>
     </div>
 </div>
+{{!-- add employee script --}}
 <script src="/javascript/addemployee.js"></script>
+{{!-- update employee script --}}
+<script src="/javascript/updateemployee.js"></script>
+{{!-- delete employee script --}}
+<script src="/javascript/deleteemployee.js"></script>
 {{!-- if logged in access logout javascript  --}}
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script> 
