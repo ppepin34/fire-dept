@@ -10,7 +10,7 @@ async function addEmpFormHandler(event) {
     const password = document.querySelector('#signupPW').value.trim();
 
     if (username && email && password) {
-        await fetch('/api/employee', {
+        const response = await fetch('/api/employee', {
           method: 'post',
           body: JSON.stringify({
             last_name,
@@ -33,4 +33,4 @@ async function addEmpFormHandler(event) {
       }
 };
 
-document.getElementById('signup').addEventListener('submit', addEmpFormHandler);
+document.getElementById('add-employeemodal').addEventListener('submit', addEmpFormHandler);
