@@ -33,24 +33,24 @@
                 <form class="add-employee uk-form uk-grid-small" uk-grid>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalLN" class="uk-input enter uk-form-danger uk-form-width-medium" required type="text" placeholder="Last Name"/>
+                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalFN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="First Name"/>
+                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalUN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Username"/>
+                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Username"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalEmail" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Email"/>
+                        <input id="modalEmail" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Email"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
-                        <label class="uk-form-label" for="form-horizontal-select">Select Rank</label>
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
                         <select id="modalRank" class="uk-select form-horizontal-select uk-select">
                             <option>Firefighter</option>
                             <option>Lieutenant</option>
@@ -61,7 +61,7 @@
 
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
-                        <label class="uk-form-label" for="form-horizontal-select">Select Station</label>
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
                         <select id="modalSID" class="uk-select form-horizontal-select">
                             <option value = "1">Belmopan</option>
                             <option value = "4">Benque</option>
@@ -71,9 +71,13 @@
                     </div>
                     </div>
 
+                    <div class="uk-width-1-2@s">
                     <div class="uk-margin uk-form-password">
-                        <input id="modalPW" class="uk-input enter uk-form-danger uk-form-width-medium" type="password"/>
+                        <label class="uk-form-label">Password</label>
+                        <input id="modalPW" class="uk-input enter uk-form-width-medium required" type="password"/>
                     </div>
+                    </div>
+
                 </div>
                     <div class="uk-modal-footer uk-text-right">
                         <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
