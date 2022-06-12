@@ -27,11 +27,9 @@ router.get('/login', (req, res) => {
 
 // Route to view/GET stations http://localhost:3004/login
 router.get('/stations', withAuth, (req, res) => {
-<<<<<<< HEAD
-=======
+
   console.log(req.session.loggedIn);
   // Show all Station Models
->>>>>>> 1ea3613a8dda8fffafa2e6bf07b06915e790bfe1
   Station.findAll({})
     .then(dbStationData => {
       const stations = dbStationData.map(station => station.get({ plain: true }))
@@ -104,8 +102,6 @@ router.get('/station/:id', withAuth, (req, res) => {
         res.status(404).json({ message: 'No station found with this id' });
         return;
       }
-
-      
 
       //serialize the data
       //  loop and map over each Sequelize object into a serialized version of itself, saving results in a new employees array
