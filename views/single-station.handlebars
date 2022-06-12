@@ -1,6 +1,11 @@
 <div class="uk-width-1-1 uk-row-first">
   <header>Belize National Fire Service</header>
 
-  {{> stationbtn station}}
+  {{!-- {{> stationbtn station}} --}}
+  <ol class="employee-list">
+  {{#each employees as |employee|}}
+  <li>
   {{> employeeinfo employee}}
+  </li>
+  {{/each}}
 </div>

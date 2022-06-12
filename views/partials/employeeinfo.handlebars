@@ -1,12 +1,8 @@
-<ol class="employee-list">
-  {{#each employees as |employee|}}
-  <li>
+
     <article class="employee">
-        {{employee.first_name}} {{employee.last_name}}
+      <div>
+        {{first_name}}<span> </span> {{last_name}}
         |
-        <a href="/employee/{{employee.id}}"></a>
+        <a href="/employee/{{id}}">Click to update</a>
       </div>
     </article>
-  </li>
-  {{/each}}
-</ol>
