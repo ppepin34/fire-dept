@@ -5,8 +5,16 @@
             {{> stationbtn station}}
        {{/each}} --}}
     <div class="row">
+<<<<<<< HEAD
        <button class="stationBtn col" onclick="location.href='/station/1'" type="button" id="stationthree">San Ignacio</button>
        <button class="stationBtn col" onclick="location.href='/station/2'" type="button" id="stationone">Belmopan Fire Station</button>
+=======
+      {{#each stations as |station |}}
+            {{> stationbtn station}}
+       {{/each}}
+       {{!-- <button class="stationBtn col" id="stationone">San Ignacio</button>
+       <button class="stationBtn col" id="stationtwo">Belmopan Fire Station</button> --}}
+>>>>>>> fc82cb03faa3a7a62681ce621d338526341e26b8
     {{!-- </div>
     </div> --}}
     <div class="row">

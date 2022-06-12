@@ -49,7 +49,8 @@ img {
 
 .row {
     width: 100%;
-    margin: 0;
+    margin: 10;
+
 }
 
 /* Each station button */
@@ -106,7 +107,10 @@ img {
 /* container for data that will be received (names/records) */
 #infoReceive {
     text-align: center;
-    
+}
+
+ol.employee-list {
+    list-style: none;
 }
 
 /* ------ add, update delete buttons -------*/
@@ -133,9 +137,9 @@ img {
 
 
 /* rendered links */
-.stationBtn {
+/* .stationBtn {
     
-}
+} */
 
 #modalHeader {
     text-align: center;
@@ -146,3 +150,7 @@ img {
     margin: 8px;
 }
 
+#success,
+#danger {
+    display: none;
+}
