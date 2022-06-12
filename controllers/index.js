@@ -1,3 +1,5 @@
+// ------- CONTROLLER ROUTES (outside of api folder routes)-----------
+
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
