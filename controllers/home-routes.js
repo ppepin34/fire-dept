@@ -10,7 +10,6 @@ const router = require('express').Router();
 
 // Homepage Route (How to view/GET the home page)
 router.get('/', (req, res) => {
-  console.log(req.session.loggedIn);
   res.render('homepage', {
     loggedIn: req.session.loggedIn
   });
@@ -28,6 +27,7 @@ router.get('/login', (req, res) => {
 
 // Route to view/GET stations http://localhost:3004/login
 router.get('/stations', withAuth, (req, res) => {
+
   console.log(req.session.loggedIn);
   // Show all Station Models
   Station.findAll({})
@@ -103,13 +103,10 @@ router.get('/station/:id', withAuth, (req, res) => {
         return;
       }
 
-      
-
       //serialize the data
       //  loop and map over each Sequelize object into a serialized version of itself, saving results in a new employees array
       //  goes before the render
       const employees = dbStationData.map(employee => employee.get({ plain: true }));
-      console.log(employees)
 
       // pass data to template
       res.render('single-station', {

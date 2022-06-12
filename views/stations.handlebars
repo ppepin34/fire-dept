@@ -9,21 +9,22 @@
     <button class="stationBtn col" id="stationtwo">Belize City Northside Fire Station</button>
     </div>
     <div class="row">
-       <div class="col">
-      {{#each stations as |station |}}
+      {{!-- {{#each stations as |station |}}
             {{> stationbtn station}}
-       {{/each}}
+       {{/each}} --}}
+       <button class="stationBtn col" id="stationthree" onclick="location.href='/station/3'" type="button">San Ignacio</button>
+       <button class="stationBtn col" id="stationone" onclick="location.href='/station/1'" type="button">Belmopan Fire Station</button>
+   </div>
+    {{!-- </div> --}} 
+    <div class="row">
+        <button class="stationBtn col" onclick="location.href='/station/4'" type="button" id="stationfour">Benque Fire Station</button>
+        <button class="stationBtn col" onclick="location.href='/station/2'" type="button" id="stationtwo">Santa Elena Fire Station</button>
+       <div class="col">
        </div>
-       {{!-- <button class="stationBtn col" id="stationone">San Ignacio</button>
-       <button class="stationBtn col" id="stationtwo">Belmopan Fire Station</button> --}}
-       </div>
-    </div> 
-    {{!-- <div class="row">
-        <button class="stationBtn col" id="stationthree">Benque Fire Station</button>
-        <button class="stationBtn col" id="stationfour">Santa Elena Fire Station</button> --}}
-    </div>
+
  
 </div>
- <a href="/station/{{id}}"{{ station.name }}></a> 
-
-
+<script src="/javascript/station.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script> 
+{{/if}}

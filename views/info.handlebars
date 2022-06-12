@@ -28,9 +28,9 @@
         {{!-- Add Employee --}}
         <button class="infoBtn" uk-toggle="target: #add-employeemodal" type="button">Add Employee</button>
         {{!-- Update Employee Commented out for possible future use --}}
-        {{!-- <button class="infoBtn">Update Employee</button> --}}
+        <button class="infoBtn" uk-toggle="target: #update-employeemodal" type="button">Update Employee</button>
         {{!-- Delete Employee --}}
-        <button class="infoBtn">Delete Employee</button>
+        <button class="infoBtn" uk-toggle="target: #delete-employeemodal" type="button">Delete Employee</button>
     </div>
 
 {{!--------- Modal For Add Employee Button -------}}
@@ -95,7 +95,7 @@
                 </div>
                     <div class="uk-modal-footer uk-text-right">
                         <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary" type="submit">Save</button>
                     </div>
             </form>
         </div>
@@ -110,13 +110,11 @@
                 <form class="delete-employee uk-form" uk-grid>
 
                     <select class="uk-select">
-                        <option>
-                            <ul class="employee-list">
-                                {{#each employees}}
-                                <li>{{first_name}}<span> </span> {{last_name}}</li>
-                                {{/each}}
-                            </ul>
+                        {{#each employees}}
+                        <option value="{{id}}">
+                            {{first_name}}<span> </span> {{last_name}}
                         </option>
+                        {{/each}}
                     </select>
                 </form>
                 </div>
@@ -141,20 +139,20 @@
         <form class="update-employee uk-form uk grid-small" uk-grid>
 
              <div class="uk-width-1-2@s">
-                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Rank"/>
+                        <input id="updateLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Station"/>
+                        <input id="updateFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Certification"/>
+                        <input id="updateUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="ID"/>
                     </div>
                      <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
                         <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
-                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
+                        <select id="updateRank" class="uk-select form-horizontal-select uk-select">
                             <option>Firefighter</option>
                             <option>Lieutenant</option>
                             <option>Captain</option>
@@ -165,7 +163,7 @@
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
                         <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
-                        <select id="modalSID" class="uk-select form-horizontal-select">
+                        <select id="updateSID" class="uk-select form-horizontal-select">
                             <option value = "1">Belmopan</option>
                             <option value = "4">Benque</option>
                             <option value = "2">Santa Elena</option>
@@ -177,11 +175,11 @@
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
                         <label class="uk-form-label" for="form-horizontal-select" required>Select Certification</label>
-                        <select id="modalSID" class="uk-select form-horizontal-select">
-                            <option>Driver</option>
-                            <option>CPR</option>
-                            <option>EMR</option>
-                            <option>EMT</option>
+                        <select id="updateSID" class="uk-select form-horizontal-select">
+                            <option value="1">Driver</option>
+                            <option value="2">CPR</option>
+                            <option value="3">EMR</option>
+                            <option value="4">EMT</option>
                         </select>
                     </div>
                     </div>
