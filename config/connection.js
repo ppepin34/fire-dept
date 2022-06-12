@@ -8,17 +8,6 @@ const Sequelize = require("sequelize");
 // to use contents of .env file (! Make sure they match your .env file names !)
 const sequelize = process.env.JAWSDB_URL
   ? new Sequelize(process.env.JAWSDB_URL)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 1ea3613a8dda8fffafa2e6bf07b06915e790bfe1
-  : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
-      host: 'localhost',
-      dialect: 'mysql',
-=======
-
-
   : new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -26,7 +15,6 @@ const sequelize = process.env.JAWSDB_URL
     {
       host: "localhost",
       dialect: "mysql",
->>>>>>> phil
       dialectOptions: {
         decimalNumbers: true,
       },
