@@ -1,4 +1,4 @@
-// PAGE TO CONNECT FILES TO SERVER
+// ---------- PAGE TO CONNECT FILES TO SERVER ------------
 
 // create path for stylesheet to connect to client
 const path = require('path');
