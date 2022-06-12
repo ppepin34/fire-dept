@@ -1,42 +1,199 @@
-<link rel="stylesheet" href="/stylesheets/style.css">
+{{!------ EMPLOYEE INFO PAGE ------}}
+
 <header>Belize National Fire Service</header>
-<div>
+    {{!-- Employees text to describe data --}}
      <div id="employeeHeader">Employees</div>
+        {{!--- Employee (Received) Container----}}
         <div id="infoReceive">
+            {{!-- List Container --}}
              <ol class="employee-list">
                 {{#each employees as |employee|}}
+                {{!-- List of each employee  --}}
                 <li>
                 {{> employeeinfo employee}}
                 </li>
                 {{/each}}
             </ol>
         </div>
+{{!-- Alert to inform a successful employee add --}}
+        <div uk-alert class="uk-alert-success uk-animation-fade uk-animation-reverse uk-animation-15" id="success">
+            <p>The employee has been successfully added.</p>
+        </div>
+{{!-- Alert Error --}}
+        <div uk-alert class="uk-alert-danger uk-animation-fade uk-animation-reverse uk-animation-15" id="danger">
+            <p>Something has gone wrong. Please check that you are not duplicating a employees email or username</p>
+        </div>
+{{!-- Option Buttons Container --}}
     <div id="infoBtns">
+        {{!-- Add Employee --}}
         <button class="infoBtn" uk-toggle="target: #add-employeemodal" type="button">Add Employee</button>
-        <button class="infoBtn">Update Employee</button>
-        <button class="infoBtn">Delete Employee</button>
+        {{!-- Update Employee Commented out for possible future use --}}
+        <button class="infoBtn" uk-toggle="target: #update-employeemodal" type="button">Update Employee</button>
+        {{!-- Delete Employee --}}
+        <button class="infoBtn" uk-toggle="target: #delete-employeemodal" type="button">Delete Employee</button>
     </div>
 
-<div id="add-employeemodal" uk-modal>
+{{!--------- Modal For Add Employee Button -------}}
+{{!-- Container --}}
+<div id="add-employeemodal" class="add-employeemodal" uk-modal>
     <div class="uk-modal-dialog">
+             {{!-- Header of Modal --}}
             <div class="uk-modal-header">
                 <h2 class="uk-modal-title" id="modalHeader">Enter in the Employees Information Below</h2>
             </div>
+            {{!------- Modal Body -------}}
             <div class="uk-modal-body">
-                <form class="add-employee">
-                    <input id="modalLN" class="uk-input enter" type="text" placeholder="Last Name"/>
-                    <input id="modalFN" class="uk-input enter" type="text" placeholder="First Name"/>
-                    <input id="modalUN" class="uk-input enter" type="text" placeholder="Username"/>
-                    <input id="modalEmail" class="uk-input enter" type="text" placeholder="Email"/>
-                    <input id="modalRank" class="uk-input enter" type="text" placeholder="Rank"/>
-                    <input id="modalSID" class="uk-input enter" type="text" placeholder="Station Id"/>
-                    <input id="modalPW" class="uk-input enter" type="text" placeholder="Password"/>
-            </div>
-            <div class="uk-modal-footer uk-text-right">
-                <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
-                   </form>
-            </div>
+                <form class="add-employee uk-form uk-grid-small" uk-grid>
+                    {{!-- last name input box --}}
+                    <div class="uk-width-1-2@s">
+                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
+                    </div>
+                    {{!-- first name input box --}}
+                    <div class="uk-width-1-2@s">
+                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
+                    </div>
+                    {{!-- username input box--}}
+                    <div class="uk-width-1-2@s">
+                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Username"/>
+                    </div>
+                    {{!--  email input box --}}
+                    <div class="uk-width-1-2@s">
+                        <input id="modalEmail" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Email"/>
+                    </div>
+                    {{!--  Rank Selection Dropdown --}}
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select">Select Rank</label>
+                        {{!-- Rank Options --}}
+                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
+                            <option>Firefighter</option>
+                            <option>Lieutenant</option>
+                            <option>Captain</option>
+                        </select>
+                    </div>
+                    </div>
+                    {{!-- Station Select Options --}}
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option value = "1">Belmopan</option>
+                            <option value = "4">Benque</option>
+                            <option value = "2">Santa Elena</option>
+                            <option value = "3">San Ignacio</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    {{!-- Password Input Box --}}
+                    <div class="uk-margin uk-form-password">
+                        <label class="uk-form-label">Password</label>
+                        <input id="modalPW" class="uk-input enter uk-form-width-medium required" type="password"/>
+                    </div>
+                    </div>
+                </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary" type="submit">Save</button>
+                    </div>
+            </form>
+        </div>
     </div>
-    <script src="/javascript/addemployee.js"></script>
+
+    <div id="delete-employeemodal" class="delete-employeemodal" uk-modal>
+    <div class="uk-modal-dialog">
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title" id="deletemodalHeader">Enter in the Employees Information Below to Delete</h2>
+            </div>
+            <div class="uk-modal-body">
+                <form class="delete-employee uk-form" uk-grid>
+
+                    <select class="uk-select">
+                        {{#each employees}}
+                        <option value="{{id}}">
+                            {{first_name}}<span> </span> {{last_name}}
+                        </option>
+                        {{/each}}
+                    </select>
+                </form>
+                </div>
+                    {{!-- Cancel/Save Buttons Container--}}
+                    <div class="uk-modal-footer uk-text-right">
+                         {{!-- Cancel Button--}}
+                        <button id="deletecloseBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                         {{!-- Save Button--}}
+                        <button id="deletesaveBtn" class="uk-button uk-button-primary" type="submit">Save</button>
+                    </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+<div id="update-employeemodal" class="update-employeemodal" uk-modal>
+    <div class "uk -modal-dialog">
+    <div class="uk-modal-header">
+        <h2 class="uk-modal-title" id="modalHeader">Enter in the Employee you'd like to Update</h2>
+    </div>
+    <div class="uk-modal-body">
+        <form class="update-employee uk-form uk grid-small" uk-grid>
+
+             <div class="uk-width-1-2@s">
+                        <input id="updateLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="updateFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="updateUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="ID"/>
+                    </div>
+                     <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
+                        <select id="updateRank" class="uk-select form-horizontal-select uk-select">
+                            <option>Firefighter</option>
+                            <option>Lieutenant</option>
+                            <option>Captain</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
+                        <select id="updateSID" class="uk-select form-horizontal-select">
+                            <option value = "1">Belmopan</option>
+                            <option value = "4">Benque</option>
+                            <option value = "2">Santa Elena</option>
+                            <option value = "3">San Ignacio</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Certification</label>
+                        <select id="updateSID" class="uk-select form-horizontal-select">
+                            <option value="1">Driver</option>
+                            <option value="2">CPR</option>
+                            <option value="3">EMR</option>
+                            <option value="4">EMT</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
+                    </div>
+        </form>
+    </div>
+    </div>
+</div>
+<script src="/javascript/addemployee.js"></script>
+{{!-- if logged in access logout javascript  --}}
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script> 
+{{/if}}

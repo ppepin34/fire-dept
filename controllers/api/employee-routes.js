@@ -1,3 +1,5 @@
+//  -------- EMPLOYEE ROUTES ---------
+
 const router = require('express').Router();
 const { Employee, Certification, Station, EmployeeCert } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -99,13 +101,10 @@ router.post('/login', (req, res) => {
             req.session.user_id = dbEmpData.id;
             req.session.username = dbEmpData.username;
             req.session.loggedIn = true;
-            console.log(req.session.loggedIn);
-            console.log(req.session.user_id);
       
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });
         });
-        // console.log(req.session.loggedIn);
       });
 
 // PUT /api/employee/1
@@ -118,7 +117,6 @@ router.put('/:id', withAuth, (req, res) => {
     })
         .then((employee) => {
             // find all associated certs from EmployeeCert
-            console.log(req.params.id)
             return EmployeeCert.findAll({ where: { employee_id: req.params.id } });
         })
         .then((employeeCert) => {

@@ -1,3 +1,5 @@
+// ----- ASSOCIATIONS FOR MODELS -------
+
 // import all models
 const Certification = require('./Certification');
 const Employee = require('./Employee');
@@ -37,4 +39,5 @@ EmployeeCert.belongsTo(Employee, {
 //     foreignKey: 'employee_id'
 // })
 
+// export to use in other files
 module.exports = { Employee, Certification, Station, EmployeeCert };

@@ -49,7 +49,8 @@ img {
 
 .row {
     width: 100%;
-    margin: 0;
+    margin: 10;
+
 }
 
 /* Each station button */
@@ -61,14 +62,6 @@ img {
 }
 
 #stationone {
-    background-image: url('../images/belize_engine.jpg');
-    background-position: center;
-    background-size: cover;
-    background-color: darkslategray;
-    background-blend-mode: soft-light;
-}
-
-#stationtwo {
     background-image: url('../images/belmopan.png');
     background-position: center;
     background-size: cover;
@@ -76,8 +69,16 @@ img {
     background-blend-mode: soft-light;
 }
 
+#stationtwo {
+    background-image: url('../images/santa_elena.png');
+    background-position: center;
+    background-size: cover;
+    background-color: darkslategray;
+    background-blend-mode: soft-light;
+}
+
 #stationthree {
-    background-image: url('../images/benque.png');
+    background-image: url('../images/belize_engine.png');
     background-position: center;
     background-size: cover;
     background-color: darkslategray;
@@ -85,12 +86,17 @@ img {
 }
 
 #stationfour {
-    background-image: url('../images/santa_elena.png');
+    background-image: url('../images/benque.png');
     background-position: center;
     background-size: cover;
     background-color: darkslategray;
     background-blend-mode: soft-light;
 }
+
+/* rendered links */
+/* .stationBtn {
+    width: 40%;
+} */
 
 
 /* ---------- info section -------------- */
@@ -106,7 +112,10 @@ img {
 /* container for data that will be received (names/records) */
 #infoReceive {
     text-align: center;
-    
+}
+
+ol.employee-list {
+    list-style: none;
 }
 
 /* ------ add, update delete buttons -------*/
@@ -132,11 +141,6 @@ img {
 }
 
 
-/* rendered links */
-.stationBtn {
-    
-}
-
 #modalHeader {
     text-align: center;
 }
@@ -146,3 +150,7 @@ img {
     margin: 8px;
 }
 
+#success,
+#danger {
+    display: none;
+}

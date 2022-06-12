@@ -1,3 +1,5 @@
+// ------- EMPLOYEE MODEL ---------
+
 //import model and datatypes from sequelize
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
@@ -13,7 +15,9 @@ class Employee extends Model {
 
 Employee.init(
     {
+        // name of columns
         id: {
+            // rules of column
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -25,7 +29,7 @@ Employee.init(
         },
         last_name: {
             type: DataTypes.STRING,
-            //allowNull: false
+            allowNull: false
         },
         username: {
             type: DataTypes.STRING,
@@ -52,7 +56,7 @@ Employee.init(
         },
         station_id: {
             type: DataTypes.INTEGER,
-            //allowNull: false,
+            allowNull: false,
             references: {
                 model: 'station',
                 key: 'id'
@@ -79,4 +83,5 @@ Employee.init(
   }
 );
 
+// export Employee Model to ues in other files
 module.exports = Employee;
