@@ -117,6 +117,69 @@
         </div>
     </div>
 </div>
+
+<div id="update-employeemodal" calss "update-employeemodal" uk-modal>
+    <div class "uk -modal-dialog">
+    <div class="uk-modal-header">
+        <h2 class="uk-modal-title" id="updatemodalHeader">Enter in the Employee you'd like to Update</h2>
+    </div>
+    <div class="uk-modal-body">
+        <form class="update-employee uk-form" uk-grid>
+
+             <div class="uk-width-1-2@s">
+                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Rank"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Station"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Certification"/>
+                    </div>
+                     <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
+                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
+                            <option>Firefighter</option>
+                            <option>Lieutenant</option>
+                            <option>Captain</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option value = "1">Belmopan</option>
+                            <option value = "4">Benque</option>
+                            <option value = "2">Santa Elena</option>
+                            <option value = "3">San Ignacio</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Certification</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option>Driver</option>
+                            <option>CPR</option>
+                            <option>EMR</option>
+                            <option>EMT</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
+                    </div>
+        </form>
+    </div>
+    </div>
+</div>
 <script src="/javascript/addemployee.js"></script>
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script> 
