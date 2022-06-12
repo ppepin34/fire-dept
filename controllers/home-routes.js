@@ -6,7 +6,6 @@ const withAuth = require('../utils/auth');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  console.log(req.session.loggedIn);
   res.render('homepage', {
     loggedIn: req.session.loggedIn
   });
@@ -22,7 +21,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/stations', withAuth, (req, res) => {
-  console.log(req.session.loggedIn);
   Station.findAll({})
     .then(dbStationData => {
       const stations = dbStationData.map(station => station.get({ plain: true }))
@@ -90,7 +88,6 @@ router.get('/station/:id', withAuth, (req, res) => {
 
       //serialize the data
       const employees = dbStationData.map(employee => employee.get({ plain: true }));
-      console.log(employees)
 
       // pass data to template
       res.render('single-station', {
