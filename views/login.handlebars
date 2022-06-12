@@ -26,35 +26,34 @@
     </div>
 
 </div>
-
-<div id="add-employeemodal" uk-modal>
+<div id="add-employeemodal" class="add-employeemodal" uk-modal>
     <div class="uk-modal-dialog">
             <div class="uk-modal-header">
                 <h2 class="uk-modal-title" id="modalHeader">Enter in the Employees Information Below</h2>
             </div>
             <div class="uk-modal-body">
-                <form class="add-employee uk-form uk-grid-small" id="signup" uk-grid>
+                <form class="add-employee uk-form uk-grid-small" uk-grid>
 
                     <div class="uk-width-1-2@s">
-                        <input id="signupLN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Last Name"/>
+                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="signupFN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="First Name"/>
+                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="signupUN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Username"/>
+                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Username"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="signupEmail" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Email"/>
+                        <input id="modalEmail" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Email"/>
                     </div>
 
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
-                        <label class="uk-form-label" for="form-horizontal-select">Select Rank</label>
-                        <select id="signupRank" class="uk-select form-horizontal-select uk-select">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
+                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
                             <option>Firefighter</option>
                             <option>Lieutenant</option>
                             <option>Captain</option>
@@ -64,29 +63,39 @@
 
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
-                        <label class="uk-form-label" for="form-horizontal-select">Select Station</label>
-                        <select id="signupSID" class="uk-select form-horizontal-select">
-                            <option value="1">Belmopan</option>
-                            <option value="4">Benque</option>
-                            <option value="2">Santa Elena</option>
-                            <option value="3">San Ignacio</option>
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option value = "1">Belmopan</option>
+                            <option value = "4">Benque</option>
+                            <option value = "2">Santa Elena</option>
+                            <option value = "3">San Ignacio</option>
                         </select>
                     </div>
                     </div>
 
-                    <div class="uk-margin">
-                        <input id="signupPW" class="uk-input enter uk-form-danger uk-form-width-medium" type="password" placeholder="Password"/>
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-margin uk-form-password">
+                        <label class="uk-form-label">Password</label>
+                        <input id="modalPW" class="uk-input enter uk-form-width-medium required" type="password"/>
                     </div>
+                    </div>
+
                 </div>
                     <div class="uk-modal-footer uk-text-right">
                         <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
                         <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
                     </div>
             </form>
-            </div>
+        </div>
     </div>
 
+<div uk-alert class="uk-alert-success uk-animation-fade uk-animation-reverse uk-animation-15" id="success">
+    <p>The employee has been successfully added.</p>
+</div>
+<div uk-alert class="uk-alert-danger uk-animation-fade uk-animation-reverse uk-animation-15" id="danger">
+    <p>Something has gone wrong. Please check that you are not duplicating a employees email or username</p>
 </div>
 
+
 <script src="/javascript/login.js"></script>
-<script src="/javascript/signup.js"></script>
+<script src="/javascript/addemployee.js"></script>

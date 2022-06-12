@@ -1,40 +1,36 @@
 async function addEmpFormHandler(event) {
     event.preventDefault();
 
-    // const last_name = document.querySelector('#signupLN').value.trim();
-    // const first_name = document.querySelector('#signupFN').value.trim();
-    // const username = document.querySelector('#signupUN').value.trim();
-    // const email = document.querySelector('#signupEmail').value.trim();
-    // const rank = document.querySelector('#signupRank').value.trim();
-    // const station_id = document.querySelector('#signupSID').value.trim();
-    // const station_id = parseInt(document.querySelector('#signupSID').value);
-    // const password = document.querySelector('#signupPW').value.trim();
+    const last_name = document.querySelector('#signupLN').value.trim();
+    const first_name = document.querySelector('#signupFN').value.trim();
+    const username = document.querySelector('#signupUN').value.trim();
+    const email = document.querySelector('#signupEmail').value.trim();
+    const rank = document.querySelector('#signupRank').value.trim();
+    const station_id = parseInt(document.querySelector('#signupSID').value);
+    const password = document.querySelector('#signupPW').value.trim();
 
-
-    console.log('this function fired')
-    console.log(document.querySelector('signupSID').value);
-    // if (username && email && password) {
-    //     await fetch('/api/employee', {
-    //         method: 'post',
-    //         body: JSON.stringify({
-    //             last_name,
-    //             first_name,
-    //             username,
-    //             email,
-    //             rank,
-    //             station_id,
-    //             password
-    //         }),
-    //         headers: { 'Content-Type': 'application/json' }
-    //     });
-
-    //     // check the response status
-    //     if (response.ok) {
-    //         document.location.replace('/')
-    //     } else {
-    //         alert(response.statusText);
-    //     }
-    // }
+    if (username && email && password) {
+        await fetch('/api/employee', {
+          method: 'post',
+          body: JSON.stringify({
+            last_name,
+            first_name,
+            username,
+            email,
+            rank,
+            station_id,
+            password
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+    
+        // check the response status
+        if (response.ok) {
+          document.getElementById("success").style.display = 'block';
+        } else {
+          alert(response.statusText);
+        }
+      }
 };
 
 document.getElementById('signup').addEventListener('submit', addEmpFormHandler);
