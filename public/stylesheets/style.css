@@ -106,7 +106,10 @@ img {
 /* container for data that will be received (names/records) */
 #infoReceive {
     text-align: center;
-    
+}
+
+ol.employee-list {
+    list-style: none;
 }
 
 /* ------ add, update delete buttons -------*/
@@ -146,3 +149,6 @@ img {
     margin: 8px;
 }
 
+#success {
+    display: none;
+}

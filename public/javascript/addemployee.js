@@ -6,8 +6,7 @@ async function addEmpFormHandler(event) {
     const username = document.querySelector('#modalUN').value.trim();
     const email = document.querySelector('#modalEmail').value.trim();
     const rank = document.querySelector('#modalRank').value.trim();
-    const station_id = document.querySelector('#modalSID').value.trim();
-    //const station_id = parseInt(document.querySelector('#modalSID').value);
+    const station_id = parseInt(document.querySelector('#modalSID').value);
     const password = document.querySelector('#modalPW').value.trim();
   
     if (username && email && password) {
@@ -27,11 +26,11 @@ async function addEmpFormHandler(event) {
   
       // check the response status
       if (response.ok) {
-        console.log('success');
+        document.getElementById("success").style.display = 'block';
       } else {
         alert(response.statusText);
       }
     }
-  };
+  }
 
-document.querySelector('.add-employee').addEventListener('submit', addEmpFormHandler);
+document.querySelector('.add-employeemodal').addEventListener('submit', addEmpFormHandler);
