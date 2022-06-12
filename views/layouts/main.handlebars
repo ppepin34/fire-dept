@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en-gb">
+{{! MAIN LAYOUT PAGE. EVERY OTHER HANDLEBAR IS DIRECTED THROUGH THIS BODY }}
 
+<html lang="en-gb">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!-- title in tab at by url --}}
   <title>BNFS Employee Tracker</title>
+  {{!-- UIKit Link --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
+  {{!-- Bootstrap Link --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  {{!-- CSS Link --}}
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="shortcut icon" href="#" />
 </head>
 
 <body class="uk-padding-small uk-background-light">
   <div class="uk-cover-container">
-
-    {{!-- beginning of big screem navbar section --}}
+    {{!-- beginning of big screen navbar section --}}
     <nav class="uk-navbar-container" uk-navbar>
 
       {{!-- nav bar section left  --}}
         <div class="uk-navbar-left">
           <ul class="uk-navbar-nav align-items-center">
             <a class="uk-navbar-item uk-logo" href="/">
+            {{!-- emblem for fire station --}}
               <img src="/images/BNFS_Logo.png" width="125px">
             </a>
             <li class="uk-active"> <a href="/">Belize National Fire Service</a></li>
@@ -31,6 +35,7 @@
         <div class="uk-navbar-right">
             {{#if loggedIn}}
             <ul class="uk-navbar-nav align-items-center uk-visible@m">
+              {{!-- href set to login to take you back to login page when you choose log out --}}
               <li> <a href="/login" id="logout" class="btn-no-style">Logout</a></li>
               <li> <a href="/stations">Stations</a></li>
               <li> <a href="/info">Info</a></li>
@@ -44,37 +49,46 @@
 
     {{!-- navbar section for small screens --}}
     <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
-    <div class="uk-offcanvas-bar">
-        <ul class="uk-nav">
-          <li><a href="/">BNFS</a></li>
-            {{#if loggedIn}}
-            <li> <a href="/login" id="logout" class="btn-no-style">Logout</a></li>
-            <li> <a href="/stations">Stations</a></li>
-            <li> <a href="/info">Info</a></li>
-            {{else}}
-            <li> <a href="/login">Login</a></li>
-            {{/if}}
-        </ul>
-    </div>
+      <div class="uk-offcanvas-bar">
+          <ul class="uk-nav">
+            <li><a href="/">BNFS</a></li>
+              {{#if loggedIn}}
+              <li> <a href="/login" id="logout" class="btn-no-style">Logout</a></li>
+              <li> <a href="/stations">Stations</a></li>
+              <li> <a href="/info">Info</a></li>
+              {{else}}
+                {{! if not logged in, See only login option }}
+                <li> <a href="/login">Login</a></li>
+              {{/if}}
+          </ul>
+      </div>
     </div>
   </div>
   
-  {{!-- body for templates  --}}
+  {{!-- All handlebar templates will be inserted here  --}}
   <main>
       {{{ body }}}
   </main>
 
 {{!-- beginning of footer --}}
-<footer class="uk-card uk-card-body uk-width-1-2@m">
+<footer class="uk-card uk-card-body">
   <p>Please contact BNFS IT for assistance</br>
   Email: <a href="mailto:seniorsecretary@nationalfireservice.bz">seniorsecretary@nationalfireservice.bz</a></br>
   Phone Number: <a href="tel:501-223-1183">5012231183</a></p>
 </footer>
+<<<<<<< HEAD
+=======
+{{!-- end of footer --}}
+
+  {{!-- scripts for UIKit --}}
+>>>>>>> 1ea3613a8dda8fffafa2e6bf07b06915e790bfe1
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.14.3/dist/js/uikit-icons.min.js"></script>
+  {{!-- scripts for Bootstrap --}}
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
+{{!-- if logged in use logout.js --}}
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}

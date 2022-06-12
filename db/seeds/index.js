@@ -1,3 +1,4 @@
+// imported required info from seeds
 const seedStations = require("./station-seeds");
 const seedCertification = require("./certification-seeds");
 const seedEmployee = require("./employee-seeds");

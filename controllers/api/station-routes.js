@@ -1,3 +1,5 @@
+// ------- STATION ROUTES ------------
+
 const router = require('express').Router();
 const { Employee, Certification, Station, EmployeeCert} = require('../../models');
 const withAuth = require('../../utils/auth')
@@ -17,8 +19,11 @@ router.get('/', (req, res) => {
 // find one station
 
 router.get('/:id', (req, res) => {
+    // In the Stations Model, find a single Station
     Station.findOne({
+        // where to look
         where: {
+            // find by id
             id: req.params.id
         },
         include: [
@@ -37,6 +42,7 @@ router.get('/:id', (req, res) => {
     })
     .then(dbStationData => {
         if (!dbStationData) {
+            //  if nonexistent id is searched
             res.status(404).json({ message: 'No station found with this id'});
             return;
         }
@@ -49,6 +55,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/station
+//Create a Station
 router.post('/', withAuth, (req, res) => {
     Station.create({
       station_name: req.body.station_name,
@@ -60,5 +67,5 @@ router.post('/', withAuth, (req, res) => {
       });
   });
 
-
+// Export so you can use this file in other files
 module.exports = router;

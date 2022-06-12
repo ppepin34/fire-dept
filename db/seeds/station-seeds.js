@@ -1,3 +1,4 @@
+// created seeds for station names 
 const { Station } = require("../../models");
 
 const StationData = [

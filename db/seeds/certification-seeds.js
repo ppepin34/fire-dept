@@ -1,3 +1,4 @@
+// created seeds for certifications
 const { Certification } = require("../../models");
 
 const certificationData = [
