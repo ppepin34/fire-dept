@@ -137,9 +137,9 @@ ol.employee-list {
 
 
 /* rendered links */
-.stationBtn {
+/* .stationBtn {
     
-}
+} */
 
 #modalHeader {
     text-align: center;
@@ -150,6 +150,7 @@ ol.employee-list {
     margin: 8px;
 }
 
-#success {
+#success,
+#danger {
     display: none;
 }
