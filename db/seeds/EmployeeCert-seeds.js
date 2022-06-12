@@ -1,3 +1,4 @@
+// create seeds to match up each employee with certifications they have
 const { EmployeeCert } = require("../../models");
 
 const EmployeeCertData = [

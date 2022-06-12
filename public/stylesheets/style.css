@@ -93,6 +93,11 @@ img {
     background-blend-mode: soft-light;
 }
 
+/* rendered links */
+/* .stationBtn {
+    width: 40%;
+} */
+
 
 /* ---------- info section -------------- */
 
@@ -135,11 +140,6 @@ ol.employee-list {
  background-color:antiquewhite;
 }
 
-
-/* rendered links */
-/* .stationBtn {
-    
-} */
 
 #modalHeader {
     text-align: center;

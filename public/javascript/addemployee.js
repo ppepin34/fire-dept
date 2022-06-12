@@ -1,3 +1,5 @@
+// -------- ADD EMPLOYEE JAVASCRIPT (make adding an employee work) --------
+
 async function addEmpFormHandler(event) {
   event.preventDefault();
 
