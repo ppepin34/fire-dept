@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-var buttonEl = document.querySelector("#stationone");
-
-console.log("Clicked");
-
-
-
-document.querySelector("#stationone").addEventListener("click");
-=======
 const { render, redirect } = require("express/lib/response");
 
 async function stationClickHandler(event) {
@@ -48,5 +39,3 @@ stationBtn.addEventListener('click', res.redirect('/info'));
 
   
 document.querySelector('.stationone-btn').addEventListener('click', stationClickHandler);
- 
->>>>>>> develop
