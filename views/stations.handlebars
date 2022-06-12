@@ -1,17 +1,23 @@
- <header>Belize National Fire Service</header>
+ {{!-------- STATIONS PAGE  --------}}
+ 
+<header>Belize National Fire Service</header>
+
+{{!---- Container for all Stations ----}}
 <div id="box" class="container">
     <div class="row">    
     <button class="stationBtn col" id="stationone">San Ignacio Fire Station</button>
     <button class="stationBtn col" id="stationtwo">Belize City Northside Fire Station</button>
     </div>
     <div class="row">
+       <div class="col">
       {{#each stations as |station |}}
             {{> stationbtn station}}
        {{/each}}
+       </div>
        {{!-- <button class="stationBtn col" id="stationone">San Ignacio</button>
        <button class="stationBtn col" id="stationtwo">Belmopan Fire Station</button> --}}
-    {{!-- </div>
-    </div> --}}
+       </div>
+    </div> 
     {{!-- <div class="row">
         <button class="stationBtn col" id="stationthree">Benque Fire Station</button>
         <button class="stationBtn col" id="stationfour">Santa Elena Fire Station</button> --}}

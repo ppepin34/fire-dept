@@ -1,28 +1,39 @@
+{{!------ LOGIN PAGE-------}}
+
+{{!-- Login Container --}}
 <div class="uk-flex uk-flex-column uk-width-1-1 uk-flex-center">
     <div class="uk-padding-large">
+        {{!-- Home Icon --}}
         <div class="uk-flex uk-flex-center uk-margin-bottom"><span uk-icon="icon: home; ratio: 5"></span></div>
-
-            <div class="uk-flex uk-flex-center">
+        {{!-- Form Container --}}
+        <div class="uk-flex uk-flex-center">
             <form class="login-form" >
                 <div class="uk-panel uk-panel-box uk-form" >
-                <div class="uk-form-row uk-margin-small">
-                    <input class="uk-width-1-1 uk-form-large" type="text" id="email-login" placeholder="Email" />
-                </div>
-                <div class="uk-form-row uk-margin-small"> 
-                    <input class="uk-width-1-1 uk-form-large" type="password" id="password-login" placeholder="Password" />
-                </div>
-                <div class="uk-form-row uk-margin-small">
-                    <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">Login</button>
-                </div>
-                <div class="uk-form-row uk-text-small">
-                    <label class="uk-float-left"> <input type="checkbox">Remember Me</label>
-                    <a class="uk-float-right uk-link uk-link-muted" href="#">Forgot Password</a>
-                </div>
+                        {{!-- Email Container --}}
+                    <div class="uk-form-row uk-margin-small">
+                        <input class="uk-width-1-1 uk-form-large" type="text" id="email-login" placeholder="Email" />
+                    </div>
+                    {{!-- Password Container --}}
+                    <div class="uk-form-row uk-margin-small"> 
+                        <input class="uk-width-1-1 uk-form-large" type="password" id="password-login" placeholder="Password" />
+                    </div>
+                    {{!-- Login Button --}}
+                    <div class="uk-form-row uk-margin-small">
+                        <button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">Login</button>
+                    </div>
+                    {{!-- "Remember Me Checkbox Option" --}}
+                    <div class="uk-form-row uk-text-small">
+                        <label class="uk-float-left"> <input type="checkbox">Remember Me</label>
+                        {{!-- Forgot Password --}}
+                        <a class="uk-float-right uk-link uk-link-muted" href="#">Forgot Password</a>
+                    </div>
                 </div>
             </form>
-            </div>
+        </div>
         </div>
     </div>
+    {{!-- Login Script --}}
     <script src="/javascript/login.js"></script>
-     <script src="/javascript/addemployee.js"></script>
+    {{!-- Add Employee Script For Sign Up --}}
+    <script src="/javascript/addemployee.js"></script>
 </div>

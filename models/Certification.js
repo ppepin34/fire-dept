@@ -1,3 +1,5 @@
+//  ------- CERTIFICATION MODEL --------
+
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
@@ -6,7 +8,9 @@ class Certification extends Model {}
 
 Certification.init(
     {
+        // names of columns
         id: {
+            // rules of column
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -26,4 +30,5 @@ Certification.init(
         }
 );
 
+// export to use in other files
 module.exports = Certification
