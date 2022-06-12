@@ -149,6 +149,7 @@ ol.employee-list {
     margin: 8px;
 }
 
-#success {
+#success,
+#danger {
     display: none;
 }
