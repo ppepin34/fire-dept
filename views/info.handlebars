@@ -11,32 +11,113 @@
                 {{/each}}
             </ol>
         </div>
+
+        <div uk-alert class="uk-alert-success uk-animation-fade uk-animation-reverse uk-animation-15" id="success">
+            <p>The employee has been successfully added.</p>
+        </div>
+
+        <div uk-alert class="uk-alert-danger uk-animation-fade uk-animation-reverse uk-animation-15" id="danger">
+            <p>Something has gone wrong. Please check that you are not duplicating a employees email or username</p>
+        </div>
+
     <div id="infoBtns">
         <button class="infoBtn" uk-toggle="target: #add-employeemodal" type="button">Add Employee</button>
         <button class="infoBtn">Update Employee</button>
-        <button class="infoBtn">Delete Employee</button>
+        <button class="infoBtn" uk-toggle="target: #delete-employeemodal" type="button">Delete Employee</button>
     </div>
 
-<div id="add-employeemodal" uk-modal>
+
+<div id="add-employeemodal" class="add-employeemodal" uk-modal>
     <div class="uk-modal-dialog">
             <div class="uk-modal-header">
                 <h2 class="uk-modal-title" id="modalHeader">Enter in the Employees Information Below</h2>
             </div>
             <div class="uk-modal-body">
-                <form class="add-employee">
-                    <input id="modalLN" class="uk-input enter" type="text" placeholder="Last Name"/>
-                    <input id="modalFN" class="uk-input enter" type="text" placeholder="First Name"/>
-                    <input id="modalUN" class="uk-input enter" type="text" placeholder="Username"/>
-                    <input id="modalEmail" class="uk-input enter" type="text" placeholder="Email"/>
-                    <input id="modalRank" class="uk-input enter" type="text" placeholder="Rank"/>
-                    <input id="modalSID" class="uk-input enter" type="text" placeholder="Station Id"/>
-                    <input id="modalPW" class="uk-input enter" type="text" placeholder="Password"/>
-            </div>
-            <div class="uk-modal-footer uk-text-right">
-                <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
-                   </form>
-            </div>
+                <form class="add-employee uk-form uk-grid-small" uk-grid>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalFN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="First Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Username"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalEmail" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Email"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Rank</label>
+                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
+                            <option>Firefighter</option>
+                            <option>Lieutenant</option>
+                            <option>Captain</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Station</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option value = "1">Belmopan</option>
+                            <option value = "4">Benque</option>
+                            <option value = "2">Santa Elena</option>
+                            <option value = "3">San Ignacio</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-margin uk-form-password">
+                        <label class="uk-form-label">Password</label>
+                        <input id="modalPW" class="uk-input enter uk-form-width-medium required" type="password"/>
+                    </div>
+                    </div>
+
+                </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
+                    </div>
+            </form>
+        </div>
     </div>
-    <script src="/javascript/addemployee.js"></script>
+
+    <div id="delete-employeemodal" class="delete-employeemodal" uk-modal>
+    <div class="uk-modal-dialog">
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title" id="deletemodalHeader">Enter in the Employees Information Below to Delete</h2>
+            </div>
+            <div class="uk-modal-body">
+                <form class="delete-employee uk-form" uk-grid>
+
+                    <select class="uk-select">
+                        <option>
+                            <ul class="employee-list">
+                                {{#each employees}}
+                                <li>{{first_name}}<span> </span> {{last_name}}</li>
+                                {{/each}}
+                            </ul>
+                        </option>
+                    </select>
+                 
+                </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="deletecloseBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="deletesaveBtn" class="uk-button uk-button-primary" type="submit">Save</button>
+                    </div>
+            </form>
+        </div>
+    </div>
 </div>
+<script src="/javascript/addemployee.js"></script>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script> 
+{{/if}}

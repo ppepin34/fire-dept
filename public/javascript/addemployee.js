@@ -26,11 +26,11 @@ async function addEmpFormHandler(event) {
   
       // check the response status
       if (response.ok) {
-        console.log('success');
+        document.getElementById("success").style.display = 'block';
       } else {
         alert(response.statusText);
       }
     }
-  };
+  }
 
-document.querySelector('.add-employee').addEventListener('submit', addEmpFormHandler);
+document.querySelector('.add-employeemodal').addEventListener('submit', addEmpFormHandler);

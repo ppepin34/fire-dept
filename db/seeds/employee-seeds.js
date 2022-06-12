@@ -1,3 +1,4 @@
+// created seeds for employee data
 const { Employee } = require("../../models");
 
 const employeeData = [
