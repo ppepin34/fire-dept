@@ -23,19 +23,56 @@
                 <h2 class="uk-modal-title" id="modalHeader">Enter in the Employees Information Below</h2>
             </div>
             <div class="uk-modal-body">
-                <form class="add-employee">
-                    <input id="modalLN" class="uk-input enter" type="text" placeholder="Last Name"/>
-                    <input id="modalFN" class="uk-input enter" type="text" placeholder="First Name"/>
-                    <input id="modalUN" class="uk-input enter" type="text" placeholder="Username"/>
-                    <input id="modalEmail" class="uk-input enter" type="text" placeholder="Email"/>
-                    <input id="modalRank" class="uk-input enter" type="text" placeholder="Rank"/>
-                    <input id="modalSID" class="uk-input enter" type="text" placeholder="Station Id"/>
-                    <input id="modalPW" class="uk-input enter" type="text" placeholder="Password"/>
-            </div>
-            <div class="uk-modal-footer uk-text-right">
-                <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
-                   </form>
+                <form class="add-employee uk-form uk-grid-small" uk-grid>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalLN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Last Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalFN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="First Name"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalUN" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Username"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                        <input id="modalEmail" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Email"/>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select">Select Rank</label>
+                        <select id="modalRank" class="uk-select form-horizontal-select uk-select">
+                            <option>Firefighter</option>
+                            <option>Lieutenant</option>
+                            <option>Captain</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-width-1-2@s">
+                    <div class="uk-form-controls uk-form-width-medium">
+                        <label class="uk-form-label" for="form-horizontal-select">Select Station</label>
+                        <select id="modalSID" class="uk-select form-horizontal-select">
+                            <option>Belmopan</option>
+                            <option>Benque</option>
+                            <option>Santa Elena</option>
+                            <option>San Ignacio</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <input id="modalPW" class="uk-input enter uk-form-danger uk-form-width-medium" type="text" placeholder="Password"/>
+                    </div>
+                </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button id="closeBtn" class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                        <button id="saveBtn" class="uk-button uk-button-primary uk-modal-close" type="submit">Save</button>
+                    </div>
+            </form>
             </div>
     </div>
     <script src="/javascript/addemployee.js"></script>
