@@ -28,9 +28,9 @@ async function addEmpFormHandler(event) {
       // check the response status
       if (response.ok) {
         document.getElementById("success").style.display = 'block';
+        document.location.replace('/info/');
       } else {
-        console.log('failure to add employee');
-        alert(response.statusText);
+        document.getElementById("danger").style.display = 'block';
       }
     }
   }

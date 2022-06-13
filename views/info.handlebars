@@ -120,9 +120,9 @@
                 <h2 class="uk-modal-title" id="deletemodalHeader">Enter in the Employees Information Below to Delete</h2>
             </div>
             <div class="uk-modal-body">
-                <form id="deleteEmployee" class="delete-employee uk-form" uk-grid>
+                <form class="delete-employee uk-form">
 
-                    <select class="uk-select">
+                    <select id="deleteEmployee" class="uk-select">
                         {{#each employees}}
                         <option value="{{id}}">
                             {{first_name}}<span> </span> {{last_name}}
