@@ -112,7 +112,6 @@ router.get('/station/:id', withAuth, (req, res) => {
       //  loop and map over each Sequelize object into a serialized version of itself, saving results in a new employees array
       //  goes before the render
       const employees = dbStationData.map(employee => employee.get({ plain: true }));
-      console.log(employees.certifications);
 
       // pass data to template
       res.render('single-station', {

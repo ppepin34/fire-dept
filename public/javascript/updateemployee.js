@@ -6,8 +6,9 @@ async function updateFormHandler(event) {
     const rank = document.getElementById('updateRank');
     const station_id = document.getElementById('updateSID').value;
     const certIDs = document.getElementById('updateCerts').value;
+
     const response = await fetch(`/api/employee/${id}`, {
-        method: 'PUT',
+        method: 'put',
         body: JSON.stringify({
             rank,
             station_id,
