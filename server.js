@@ -9,7 +9,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 
 const app = express();
-const PORT = process.env.PORT || 3004;
+const PORT = process.env.PORT || 3003;
 
 const sequelize = require("./config/connection");
 // automatically stores sessions created by express-session

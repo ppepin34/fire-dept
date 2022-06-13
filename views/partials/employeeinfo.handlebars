@@ -1,11 +1,41 @@
-
-    <article class="employee">
+{{!-- 
+ <article class="employee">
       <div>
         {{id}} <span> </span>{{first_name}}<span> </span> {{last_name}}
         <span> | </span> {{rank}}
         <span> | </span>{{station.station_name}}
-        <span> | </span>{{#each certifications}} {{cert_name}} {{/each}}
+        <span> | </span>{{#each certifications}} {{cert_name}} {{/each}} --}}
+  {{!-- <table class="uk-table uk-table-striped uk-table-hover">
+          <thead>
+            <tr>
+            <th>ID: </th>
+            <th>First Name: </th>
+            <th>Last Name: </th>
+            <th>Rank: </th>
+            <th>Certifications: </th>
+            <th>Email: </th>
+             </tr>
+        </thead> --}}
+  <tbody>
+          <tr>
+             <td>{{id}}</td>
+            <td>{{first_name}}</td>
+             <td>{{last_name}}</td>
+             <td>{{rank}}</td>
+             <td>{{#each certifications}} {{cert_name}}{{/each}}</td>
+            <td>{{email}}</td>
+         </tr>
+   </tbody>
+{{!-- </table> --}}
+
+          {{!-- {{id}} <span> </span></spand>{{first_name}}<span> </span> {{last_name}}<span> </span> {{Certification}} --}}
         {{!-- | --}}
         {{!-- <a href="/employee/{{id}}">Click to update</a> --}}
-      </div>
-    </article>
+     {{!-- <th>ID</th>
+             <td>{{id}}</td>
+            <th>First Name</th>
+            <td>{{first_name}}</td>
+            <th>Last Name</th>
+             <td>{{last_name}}</td>
+            <th>Certification</th>
+            <td>{{Certification}}</td> --}}
