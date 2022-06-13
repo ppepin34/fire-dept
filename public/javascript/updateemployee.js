@@ -1,6 +1,8 @@
 async function updateFormHandler(event) {
     event.preventDefault();
 
+   
+ 
     // const id = 
     // const rank =
     // const station_id =
