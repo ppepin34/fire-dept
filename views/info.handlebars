@@ -6,7 +6,7 @@
         {{!--- Employee (Received) Container----}}
         <div id="infoReceive">
             {{!-- List Container --}}
-             <ol class="employee-list">
+             <div class="employee-list">
                   <table class="uk-table uk-table-striped uk-table-hover">
                     <thead>
                         <tr>
@@ -19,14 +19,11 @@
                         </tr>
                     </thead>
                 {{#each employees as |employee|}}
-                {{!-- List of each employee  --}}
-                <li>
-                    
+                {{!-- List of each employee  --}}                    
                 {{> employeeinfo employee}}
-                </li>
                 {{/each}}
                 </table>
-            </ol>
+            </div>
         </div>
 {{!-- Alert to inform a successful employee add --}}
         <div uk-alert class="uk-alert-success uk-animation-fade uk-animation-reverse uk-animation-15" id="success">

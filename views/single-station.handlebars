@@ -13,23 +13,11 @@
             <th>Email: </th>
              </tr>
         </thead>
-  {{!-- <tbody>
-          <tr>
-             <td>{{id}}</td>
-            <td>{{first_name}}</td>
-             <td>{{last_name}}</td>
-             <td>{{rank}}</td>
-             <td>{{#each certifications}} {{cert_name}}{{/each}}</td>
-            <td>{{email}}</td>
-         </tr>
-   </tbody> --}}
 
-  {{!-- {{> stationbtn station}} --}}
-  <ol class="employee-list">
+  <div class="employee-list">
     {{#each employees as |employee|}}
-    <li>
     {{> employeeinfo employee}}
-    </li>
     {{/each}}
+  </div>
 </table>
 </div>
