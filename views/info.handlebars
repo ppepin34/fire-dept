@@ -131,12 +131,12 @@
 </div>
 
 <div id="update-employeemodal" class="update-employeemodal" uk-modal>
-    <div class "uk -modal-dialog">
+    <div class "uk-modal-dialog">
     <div class="uk-modal-header">
         <h2 class="uk-modal-title" id="modalHeader">Enter in the Employee you'd like to Update</h2>
     </div>
     <div class="uk-modal-body">
-        <form class="update-employee uk-form uk grid-small" uk-grid>
+        <form class="update-employee uk-form uk-grid-small" uk-grid>
 
              <div class="uk-width-1-2@s">
                         <input id="updateLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
@@ -174,8 +174,8 @@
 
                     <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
-                        <label class="uk-form-label" for="form-horizontal-select">Select Certification</label>
-                        <select id="updateCerts" class="uk-select form-horizontal-select">
+                        <label class="uk-form-label" for="form-horizontal-select" required>Select Certification</label>
+                        <select id="updateSID" class="uk-select form-horizontal-select" multiple>
                             <option value="1">Driver</option>
                             <option value="2">CPR</option>
                             <option value="3">EMR</option>
@@ -200,5 +200,5 @@
 <script src="/javascript/deleteemployee.js"></script>
 {{!-- if logged in access logout javascript  --}}
 {{#if loggedIn}}
-<script src="/javascript/logout.js"></script> 
+<script src="/public/javascript/logout.js"></script> 
 {{/if}}
