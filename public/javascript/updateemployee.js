@@ -23,3 +23,5 @@ async function updateFormHandler(event) {
         alert(response.statusText);
     }
 }
+
+document.getElementById('update-employeemodal').addEventListener('submit', updateFormHandler)
