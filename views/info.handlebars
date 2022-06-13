@@ -107,7 +107,7 @@
                 <h2 class="uk-modal-title" id="deletemodalHeader">Enter in the Employees Information Below to Delete</h2>
             </div>
             <div class="uk-modal-body">
-                <form class="delete-employee uk-form" uk-grid>
+                <form id="deleteEmployee" class="delete-employee uk-form" uk-grid>
 
                     <select class="uk-select">
                         {{#each employees}}
@@ -147,7 +147,7 @@
                     </div>
 
                     <div class="uk-width-1-2@s">
-                        <input id="updateUN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="ID"/>
+                        <input id="updateId" class="uk-input enter uk-form-width-medium" required type="text" placeholder="ID"/>
                     </div>
                      <div class="uk-width-1-2@s">
                     <div class="uk-form-controls uk-form-width-medium">
@@ -192,9 +192,12 @@
     </div>
     </div>
 </div>
-<script src="/public/javascript/addemployee.js"></script>
-<script src="/public/javascript/updateemployee.js"></script>
-<script src="/public/javascript/deleteemployee.js"></script>
+{{!-- add employee script --}}
+<script src="/javascript/addemployee.js"></script>
+{{!-- update employee script --}}
+<script src="/javascript/updateemployee.js"></script>
+{{!-- delete employee script --}}
+<script src="/javascript/deleteemployee.js"></script>
 {{!-- if logged in access logout javascript  --}}
 {{#if loggedIn}}
 <script src="/public/javascript/logout.js"></script> 

@@ -1,12 +1,10 @@
 async function updateFormHandler(event) {
     event.preventDefault();
 
-   
- 
-    // const id = 
-    // const rank =
-    // const station_id =
-    // const certs = 
+    const id = document.getElementById(updateId);
+    const rank = document.getElementById(updateRank);
+    const station_id = document.getElementById(updateSID).value;
+    const certIDs = document.getElementById(updateCerts).value;
     const response = await fetch(`/api/employee/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
