@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
   });
 });
 
-// Login Route (How to view/GET the login page) http://localhost:3004/login
+// Login Route (How to view/GET the login page) http://localhost:3003/login
 router.get('/login', (req, res) => {
-  // if logged in redirect to localhost:3004/
+  // if logged in redirect to localhost:3003/
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
@@ -25,7 +25,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Route to view/GET stations http://localhost:3004/login
+// Route to view/GET stations http://localhost:3003/login
 router.get('/stations', withAuth, (req, res) => {
 
   console.log(req.session.loggedIn);
@@ -45,7 +45,7 @@ router.get('/stations', withAuth, (req, res) => {
 });
 
 
-// Route to view/GET info page http://localhost:3004/info
+// Route to view/GET info page http://localhost:3003/info
 router.get('/info', withAuth, (req, res) => {
   // see all Employee models
   Employee.findAll({
@@ -76,7 +76,7 @@ router.get('/info', withAuth, (req, res) => {
     });
 });
 
-// GET all employees by station http://localhost:3004/station:id
+// GET all employees by station http://localhost:3003/station:id
 router.get('/station/:id', withAuth, (req, res) => {
   // In Employee model, find all employees...
   Employee.findAll({

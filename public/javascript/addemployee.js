@@ -1,4 +1,5 @@
 // -------- ADD EMPLOYEE JAVASCRIPT (make adding an employee work) --------
+
 async function addEmpFormHandler(event) {
     // variables data compenents from the front end form
     const last_name = document.querySelector('#modalLN').value.trim();
