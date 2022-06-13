@@ -91,13 +91,13 @@ router.post('/login', (req, res) => {
                 res.status(400).json({ message: 'Incorrect password' });
                 return;
             }
-      
+
           req.session.save(() => {
-            // declare session variables
-            req.session.user_id = dbEmpData.id;
+            //declare session variables
+            req.session.employee_id = dbEmpData.id;
             req.session.username = dbEmpData.username;
             req.session.loggedIn = true;
-      
+
             res.json({ user: dbEmpData, message: 'You are now logged in!' });
           });
         });
