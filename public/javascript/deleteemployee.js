@@ -15,7 +15,7 @@ async function deleteFormHandler(event) {
     }
   }
   
-  document.querySelector('#deleteEmployee').addEventListener('submit', deleteFormHandler);
+  document.getElementById('deleteEmployee').addEventListener('submit', deleteFormHandler);
   
 
   //work in progress//
