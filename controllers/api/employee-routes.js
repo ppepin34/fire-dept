@@ -6,20 +6,16 @@ const withAuth = require('../../utils/auth');
 
 // GET /api/employee
 // find all employees
-
 router.get('/', (req, res) => {
     Employee.findAll({
         attributes: { exclude: ['password'] }
-    })
-        .then(dbEmpData => {
-            const employees = dbEmpData.map(employee => employee.get({ plain: true }));
-            
         })
+        .then(dbEmpData => res.json(dbEmpData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+    });
 
 // GET /api/employee/ID
 // find one employee
