@@ -1,5 +1,4 @@
 // -------- ADD EMPLOYEE JAVASCRIPT (make adding an employee work) --------
-const reload = document.location.reload('/info');
 
 async function addEmpFormHandler(event) {
     // variables data compenents from the front end form
@@ -30,10 +29,8 @@ async function addEmpFormHandler(event) {
       // check the response status
       if (response.ok) {
         document.getElementById("success").style.display = 'block';
-        reload(true);
       } else {
         document.getElementById("danger").style.display = 'block';
-        document.location.reload('/info');
       }
     }
   }
