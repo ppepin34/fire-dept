@@ -41,9 +41,9 @@
         {{!-- Add Employee --}}
         <button class="infoBtn" uk-toggle="target: #add-employeemodal" type="button">Add Employee</button>
         {{!-- Update Employee Commented out for possible future use --}}
-        <button class="infoBtn" uk-toggle="target: #update-employeemodal" type="button">Update Employee</button>
+        {{!-- <button class="infoBtn" uk-toggle="target: #update-employeemodal" type="button">Update Employee</button> --}}
         {{!-- Delete Employee --}}
-        <button class="infoBtn" uk-toggle="target: #delete-employeemodal" type="button">Delete Employee</button>
+        {{!-- <button class="infoBtn" uk-toggle="target: #delete-employeemodal" type="button">Delete Employee</button> --}}
     </div>
 
 {{!--------- Modal For Add Employee Button -------}}
@@ -129,8 +129,6 @@
                         </option>
                         {{/each}}
                     </select>
-                </form>
-                </div>
                     {{!-- Cancel/Save Buttons Container--}}
                     <div class="uk-modal-footer uk-text-right">
                          {{!-- Cancel Button--}}
@@ -149,7 +147,7 @@
         <h2 class="uk-modal-title" id="modalHeader">Enter in the Employee you'd like to Update</h2>
     </div>
     <div class="uk-modal-body">
-        <form class="update-employee uk-form uk-grid-small" uk-grid>
+        <form id="updateEmployee" class="update-employee uk-form uk-grid-small" uk-grid>
 
              <div class="uk-width-1-2@s">
                         <input id="updateLN" class="uk-input enter uk-form-width-medium" required type="text" placeholder="Last Name"/>
@@ -211,7 +209,3 @@
 <script src="/javascript/updateemployee.js"></script>
 {{!-- delete employee script --}}
 <script src="/javascript/deleteemployee.js"></script>
-{{!-- if logged in access logout javascript  --}}
-{{#if loggedIn}}
-<script src="/javascript/logout.js"></script> 
-{{/if}}

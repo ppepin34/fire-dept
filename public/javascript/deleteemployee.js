@@ -1,8 +1,10 @@
 async function deleteFormHandler(event) {
-    event.preventDefault();
-    console.log('this');
+  console.log('this');  
+  event.preventDefault();
+    
   
-    const id = document.querySelector('#deleteEmployee').value.trim();
+    const id = parseInt(document.querySelector('#deleteEmployee').value);
+    console.log(id);
 
     const response = await fetch(`/api/employee/${id}`, {
       method: 'DELETE'
@@ -16,6 +18,3 @@ async function deleteFormHandler(event) {
   }
   
   document.getElementById('deleteEmployee').addEventListener('submit', deleteFormHandler);
-  
-
-  //work in progress//

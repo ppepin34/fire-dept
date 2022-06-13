@@ -1,8 +1,8 @@
 async function updateFormHandler(event) {
+    console.log('boop');
     event.preventDefault();
-    alert('success');
 
-    const id = document.getElementById('updateId').value.trim();
+    const id = parseInt(document.getElementById('updateId').value.trim());
     const rank = document.getElementById('updateRank');
     const station_id = document.getElementById('updateSID').value;
     const certIDs = document.getElementById('updateCerts').value;
@@ -26,4 +26,4 @@ async function updateFormHandler(event) {
     }
 }
 
-document.getElementById('update-employeemodal').addEventListener('submit', updateFormHandler);
+document.getElementById('updateEmployee').addEventListener('submit', updateFormHandler);
