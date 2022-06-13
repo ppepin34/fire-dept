@@ -29,6 +29,22 @@ img {
     width: 235px;
 }
 
+.loginBtn,
+li {
+    font-size: 25px;
+    color: #999;
+    text-transform: uppercase;
+    transition: .1s ease-in-out;
+    text-decoration: none;
+    list-style: none;
+    margin: 5px
+}
+
+.loginBtn, 
+li a:hover {
+    text-decoration: none;
+    color: #999;
+}
 /* homepage text under header */
 #homeText {
     font-size: 20px;
