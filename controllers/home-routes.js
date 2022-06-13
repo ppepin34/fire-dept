@@ -89,6 +89,7 @@ router.get('/station/:id', withAuth, (req, res) => {
       'first_name',
       'last_name',
       'rank',
+      'email'
     ],
     include: [
       {

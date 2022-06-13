@@ -2,6 +2,27 @@
 
 <div class="uk-width-1-1 uk-row-first">
   <header>Belize National Fire Service</header>
+    <table class="uk-table uk-table-striped uk-table-hover">
+          <thead>
+            <tr>
+            <th>ID: </th>
+            <th>First Name: </th>
+            <th>Last Name: </th>
+            <th>Rank: </th>
+            <th>Certifications: </th>
+            <th>Email: </th>
+             </tr>
+        </thead>
+  {{!-- <tbody>
+          <tr>
+             <td>{{id}}</td>
+            <td>{{first_name}}</td>
+             <td>{{last_name}}</td>
+             <td>{{rank}}</td>
+             <td>{{#each certifications}} {{cert_name}}{{/each}}</td>
+            <td>{{email}}</td>
+         </tr>
+   </tbody> --}}
 
   {{!-- {{> stationbtn station}} --}}
   <ol class="employee-list">
@@ -10,5 +31,5 @@
     {{> employeeinfo employee}}
     </li>
     {{/each}}
-
+</table>
 </div>
