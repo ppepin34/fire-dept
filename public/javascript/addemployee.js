@@ -8,7 +8,7 @@ async function addEmpFormHandler(event) {
   const username = document.querySelector('#modalUN').value.trim();
   const email = document.querySelector('#modalEmail').value.trim();
   const rank = document.querySelector('#modalRank').value.trim();
-  const station_id = parseInt(document.querySelector('#modalSID').value);
+  const station_id = document.querySelector('#modalSID').value;
   const password = document.querySelector('#modalPW').value.trim();
 
   if (username && email && password) {

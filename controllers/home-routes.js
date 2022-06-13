@@ -2,7 +2,7 @@
 
 const { response } = require('express');
 const sequelize = require('../config/connection');
-const { Employee, Station, Certification } = require('../models');
+const { Employee, Station, Certification, EmployeeCert } = require('../models');
 const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
@@ -55,8 +55,10 @@ router.get('/info', withAuth, (req, res) => {
     //  include employees Certification Model
     include: [{
       model: Certification,
+      attributes: ['cert_name'],
+      through: EmployeeCert
     },
-      {
+    {
       // Include Station Model
       model: Station,
       attributes: ['station_name']
@@ -91,6 +93,8 @@ router.get('/station/:id', withAuth, (req, res) => {
     include: [
       {
         model: Certification,
+        attributes: ['cert_name'],
+        through: EmployeeCert
       },
       {
         model: Station,
@@ -102,11 +106,13 @@ router.get('/station/:id', withAuth, (req, res) => {
         res.status(404).json({ message: 'No station found with this id' });
         return;
       }
+  
 
       //serialize the data
       //  loop and map over each Sequelize object into a serialized version of itself, saving results in a new employees array
       //  goes before the render
       const employees = dbStationData.map(employee => employee.get({ plain: true }));
+      console.log(employees.certifications);
 
       // pass data to template
       res.render('single-station', {
