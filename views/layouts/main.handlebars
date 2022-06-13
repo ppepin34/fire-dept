@@ -40,7 +40,7 @@
               <li> <a href="/stations">Stations</a></li>
               <li> <a href="/info">Info</a></li>
             {{else}}
-              <li> <a href="/login">Login</a></li>
+              <li> <a class="loginBtn" href="/login">Login</a></li>
             {{/if}}
             </ul>
             <a href="#" class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
@@ -49,7 +49,7 @@
 
     {{!-- navbar section for small screens --}}
     <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
-      <div class="uk-offcanvas-bar">
+      <div class="uk-navbar-nav uk-offcanvas-bar">
           <ul class="uk-nav">
             <li><a href="/">BNFS</a></li>
               {{#if loggedIn}}
@@ -58,7 +58,7 @@
               <li> <a href="/info">Info</a></li>
               {{else}}
                 {{! if not logged in, See only login option }}
-                <li> <a href="/login">Login</a></li>
+              <li> <a class="loginBtn" href="/login">Login</a></li>
               {{/if}}
           </ul>
       </div>
