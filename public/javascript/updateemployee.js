@@ -1,10 +1,11 @@
 async function updateFormHandler(event) {
     event.preventDefault();
+    alert('success');
 
-    const id = document.getElementById(updateId);
-    const rank = document.getElementById(updateRank);
-    const station_id = document.getElementById(updateSID).value;
-    const certIDs = document.getElementById(updateCerts).value;
+    const id = document.getElementById('updateId').value.trim();
+    const rank = document.getElementById('updateRank');
+    const station_id = document.getElementById('updateSID').value;
+    const certIDs = document.getElementById('updateCerts').value;
     const response = await fetch(`/api/employee/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
@@ -24,4 +25,4 @@ async function updateFormHandler(event) {
     }
 }
 
-document.getElementById('update-employeemodal').addEventListener('submit', updateFormHandler)
+document.getElementById('update-employeemodal').addEventListener('submit', updateFormHandler);

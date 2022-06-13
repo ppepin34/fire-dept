@@ -2,7 +2,7 @@ async function deleteFormHandler(event) {
     event.preventDefault();
     console.log('this');
   
-    const id = document.querySelector('#deleteEmployee').value;
+    const id = document.querySelector('#deleteEmployee').value.trim();
 
     const response = await fetch(`/api/employee/${id}`, {
       method: 'DELETE'

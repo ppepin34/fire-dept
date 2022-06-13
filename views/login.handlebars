@@ -26,17 +26,16 @@
                         <label class="uk-float-left"> <input type="checkbox">Remember Me</label>
                         {{!-- Forgot Password --}}
                         <a class="uk-float-right uk-link uk-link-muted" href="#">Forgot Password</a>
+                        {{!-- Add Employee button --}}
+                        <button class="infoBtn" uk-toggle="target: #add-employeemodal" type="button">Sign Up</button>
                     </div>
                 </div>
             </form>
         </div>
         </div>
     </div>
-    {{!-- Login Script --}}
-    <script src="/javascript/login.js"></script>
-    {{!-- Add Employee Script For Sign Up --}}
-    <script src="/javascript/addemployee.js"></script>
 </div>
+
 <div id="add-employeemodal" class="add-employeemodal" uk-modal>
     <div class="uk-modal-dialog">
             <div class="uk-modal-header">
@@ -105,3 +104,8 @@
 <div uk-alert class="uk-alert-danger uk-animation-fade uk-animation-reverse uk-animation-15" id="danger">
     <p>Something has gone wrong. Please check that you are not duplicating a employees email or username</p>
 </div>
+
+    {{!-- Login Script --}}
+    <script src="/javascript/login.js"></script>
+    {{!-- Add Employee Script For Sign Up --}}
+    <script src="/javascript/addemployee.js"></script>
